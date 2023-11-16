@@ -4,31 +4,12 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
-  use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.4',
-	  -- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
-  }
-  use({
-	  'catppuccin/nvim',
-	  as = 'catppuccin',
-	  config = function()
-		  vim.cmd('colorscheme catppuccin')
-	  end
-  })
-	
-	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-	use('nvim-treesitter/playground')
-	use('theprimeagen/harpoon')
-	use('mbbill/undotree')
-	use('tpope/vim-fugitive')
+    -- Packer can manage itself
+    use ('wbthomason/packer.nvim')
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
         requires = {
-            --- Uncomment these if you want to manage LSP servers from neovim
             {'williamboman/mason.nvim'},
             {'williamboman/mason-lspconfig.nvim'},
 
@@ -41,10 +22,31 @@ return require('packer').startup(function(use)
         }
     }
     use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.4',
+        -- or                            , branch = '0.1.x',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
+    -- Colorscheme
+    use({
+        'catppuccin/nvim',
+        as = 'catppuccin',
+        config = function()
+            vim.cmd('colorscheme catppuccin')
+        end
+    })
+
+    use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+    use('nvim-treesitter/playground')
+    use("nvim-treesitter/nvim-treesitter-context");
+    use('mbbill/undotree')
+    use('theprimeagen/harpoon')
+    use('tpope/vim-fugitive')
+    use {
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
+    -- Commenting
+    use('numToStr/Comment.nvim')
+    use('lukas-reineke/indent-blankline.nvim')
 
 end)
-
-
