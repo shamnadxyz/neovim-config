@@ -1,4 +1,5 @@
-#vim.opt.guicursor = ""
+-- comment the line below for enabling mouse click support
+vim.opt.mouse = ""
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -30,6 +31,6 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
- -- spell check
+-- spell check
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = true
