@@ -1,9 +1,21 @@
 # My Neovim Config
 
-
-
 ## Requirements
-- You need to be running [Neovim](https://neovim.io/) v0.9.0+
-- [packer.nvim](https://github.com/wbthomason/packer.nvim): Plugin/Package management for Neovim
+- [Neovim](https://neovim.io/) 0.9.0+
 
+## Instructions
+- Backup or remove your current config.
 
+Delete current config
+```
+rm -rf ~/.config/nvim
+```
+Delete previously installed plugins.
+```
+rm -rf ~/.local/share/nvim/lazy
+```
+clone into $HOME/.config/nvim
+```
+git clone --depth 1 https://codeberg.org/doesitmatter0/nvim.git $HOME/.config/nvim
+```
+- Open Neovim and wait for the installation of plugins to finish.
