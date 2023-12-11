@@ -16,6 +16,6 @@ rm -rf ~/.local/share/nvim/lazy
 ```
 clone into $HOME/.config/nvim
 ```
-git clone --depth 1 https://codeberg.org/doesitmatter0/nvim.git $HOME/.config/nvim
+git clone --depth 1 https://codeberg.org/doesitmatter/nvim.git $HOME/.config/nvim
 ```
 - Open Neovim and wait for the installation of plugins to finish.
