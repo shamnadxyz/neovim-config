@@ -1,5 +1,5 @@
 -- disable line cursor
-vim.opt.guicursor = ""
+--vim.opt.guicursor = ""
 -- comment the line below for enabling mouse click support
 vim.opt.mouse = ""
 
