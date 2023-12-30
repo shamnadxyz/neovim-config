@@ -49,5 +49,5 @@ require('lazy').setup({
     },
     -- comment
     {'numToStr/Comment.nvim'},
-    {'lukas-reineke/indent-blankline.nvim'},
+    -- {'lukas-reineke/indent-blankline.nvim'},
 })
