@@ -29,7 +29,7 @@ require('lazy').setup({
       dependencies = { 'nvim-lua/plenary.nvim' }
     },
     -- Colorscheme
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    {'rebelot/kanagawa.nvim'},
     -- Treesitter
     {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
     {'nvim-treesitter/playground'},
