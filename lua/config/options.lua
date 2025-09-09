@@ -18,7 +18,7 @@ vim.opt.scrolloff = 10
 
 -- If performing an operation that would fail due to unsaved changes (like `:q`),
 -- raise a dialog asking if you wish to save the current file(s)
--- vim.opt.confirm = true
+vim.opt.confirm = true
 
 -- Disable line cursor (remove blinking block cursor)
 --vim.opt.guicursor = ""

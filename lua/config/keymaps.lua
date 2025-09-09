@@ -54,9 +54,6 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 -- Disable Ex mode (accidental Q press)
 vim.keymap.set("n", "Q", "<nop>")
 
--- Make current file executable
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
-
 -- Navigation Safety
 -- Disable arrow keys with helpful guidance
 vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
