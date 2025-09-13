@@ -11,7 +11,7 @@ vim.opt.relativenumber = false
 vim.opt.showmode = false
 
 -- Show which line your cursor is on
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
@@ -87,7 +87,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.termguicolors = true
 
 -- Show visual guide at column 80 (commented out)
--- vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "80"
 
 -- Spell checking configuration
 vim.opt.spelllang = "en_us"

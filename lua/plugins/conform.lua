@@ -15,6 +15,7 @@ return {
       require("conform").setup({
         formatters_by_ft = {
           lua = { "stylua" },
+          sh = { "shfmt" },
           -- Conform will run multiple formatters sequentially
           python = { "ruff_format" },
           -- You can customize some of the format options for the filetype (:help conform.format)
@@ -22,10 +23,26 @@ return {
           -- Conform will run the first available formatter
           javascript = { "prettierd", "prettier", stop_after_first = true },
         },
+        -- Default formatting options
         default_format_opts = {
+          timeout_ms = 3000,
+          async = false,
+          quiet = false,
           lsp_format = "fallback",
         },
-        notify_on_error = true,
+
+        -- Custom formatter configuration (optional)
+        formatters = {
+          injected = {
+            options = {
+              ignore_errors = true,
+            },
+          },
+          -- Example:
+          -- shfmt = {
+          --   prepend_args = { "-i", "2", "-ci" },
+          -- },
+        },
       })
     end,
   },
