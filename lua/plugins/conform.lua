@@ -15,7 +15,7 @@ return {
       require("conform").setup({
         formatters_by_ft = {
           lua = { "stylua" },
-          sh = { "shfmt" },
+          sh = { "shellharden" },
           -- Conform will run multiple formatters sequentially
           python = { "ruff_format" },
           -- You can customize some of the format options for the filetype (:help conform.format)
