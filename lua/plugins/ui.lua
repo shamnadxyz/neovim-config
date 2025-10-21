@@ -1,6 +1,11 @@
 return {
   { "numToStr/Comment.nvim", opts = {} }, -- Commenting
   {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
+  },
+  {
     "stevearc/oil.nvim",
     opts = {},
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
