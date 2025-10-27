@@ -55,20 +55,18 @@ return {
         lualine_b = { "branch", "diff", "diagnostics" },
         lualine_c = {
           {
-            "filetype",
-            icon_only = true,
-            separator = "",
-            padding = { left = 1, right = 0 },
-          },
-          {
             "filename",
             symbols = {
               readonly = " ",
             },
-            padding = { left = 0, right = 1 },
           },
         },
-        lualine_x = {},
+        lualine_x = {
+          {
+            "filetype",
+            icon_only = true,
+          },
+        },
         lualine_y = { "progress" },
         lualine_z = { "location" },
       },
