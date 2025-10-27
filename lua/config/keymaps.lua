@@ -23,14 +23,14 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 -- Clipboard Management
 -- Paste without yanking (avoid overwriting register)
-vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Replace selection without affecting clipboard" })
 
 -- Yank to system clipboard (all modes)
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Copy to system clipboard" })
+vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Yank whole line to system clipboard" })
 
 -- Delete without yanking (silent delete)
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete without affecting clipboard" })
 
 -- Search & Replace
 -- Substitute current word with <leader>s
@@ -39,8 +39,8 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 -- Clear search highlights when pressing Escape
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
--- Navigate diagnostics (quickfix)
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+-- Open diagnostics in location list
+vim.keymap.set("n", "<leader>l", vim.diagnostic.setloclist, { desc = "Open diagnostics in location list" })
 
 -- Next/previous error (quickfix list)
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
