@@ -13,15 +13,20 @@ return {
     },
     config = function()
       require("conform").setup({
+        -- Conform will run multiple formatters sequentially
+        -- You can customize some of the format options for the filetype (:help conform.format)
+        -- Conform will run the first available formatter
         formatters_by_ft = {
+          javascript = { "biome", "biome-organize-imports" },
+          javascriptreact = { "biome", "biome-organize-imports" },
           lua = { "stylua" },
-          sh = { "shellharden" },
-          -- Conform will run multiple formatters sequentially
+          markdown = { "markdownlint" },
           python = { "ruff_format" },
-          -- You can customize some of the format options for the filetype (:help conform.format)
           rust = { "rustfmt", lsp_format = "fallback" },
-          -- Conform will run the first available formatter
-          javascript = { "prettierd", "prettier", stop_after_first = true },
+          sh = { "shfmt" },
+          bash = { "shfmt" },
+          typescript = { "biome", "biome-organize-imports" },
+          typescriptreact = { "biome", "biome-organize-imports" },
         },
         -- Default formatting options
         default_format_opts = {
