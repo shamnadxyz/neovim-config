@@ -1,28 +1,28 @@
 return {
-  { "numToStr/Comment.nvim", opts = {} }, -- Commenting
+  { 'numToStr/Comment.nvim', opts = {} }, -- Commenting
   {
-    "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    'folke/todo-comments.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {},
   },
   {
-    "stevearc/oil.nvim",
+    'stevearc/oil.nvim',
     opts = {},
-    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    dependencies = { { 'echasnovski/mini.icons', opts = {} } },
     keys = {
-      { "<leader>e", "<cmd>Oil<cr>", desc = "Open Oil File Explorer" },
+      { '<leader>e', '<cmd>Oil<cr>', desc = 'Open Oil File Explorer' },
     },
     lazy = false,
   },
   {
-    "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = {
       options = {
         icons_enabled = true,
-        theme = "auto",
-        component_separators = "|",
-        section_separators = { left = "", right = "" },
+        theme = 'auto',
+        component_separators = '|',
+        section_separators = { left = '', right = '' },
         disabled_filetypes = {
           statusline = {},
           winbar = {},
@@ -37,38 +37,38 @@ return {
           winbar = 1000,
           refresh_time = 16, -- ~60fps
           events = {
-            "WinEnter",
-            "BufEnter",
-            "BufWritePost",
-            "SessionLoadPost",
-            "FileChangedShellPost",
-            "VimResized",
-            "Filetype",
-            "CursorMoved",
-            "CursorMovedI",
-            "ModeChanged",
+            'WinEnter',
+            'BufEnter',
+            'BufWritePost',
+            'SessionLoadPost',
+            'FileChangedShellPost',
+            'VimResized',
+            'Filetype',
+            'CursorMoved',
+            'CursorMovedI',
+            'ModeChanged',
           },
         },
       },
       sections = {
-        lualine_a = { "mode" },
-        lualine_b = { "branch", "diff", "diagnostics" },
+        lualine_a = { 'mode' },
+        lualine_b = { 'branch', 'diff', 'diagnostics' },
         lualine_c = {
           {
-            "filename",
+            'filename',
             symbols = {
-              readonly = " ",
+              readonly = ' ',
             },
           },
         },
         lualine_x = {
           {
-            "filetype",
+            'filetype',
             icon_only = true,
           },
         },
-        lualine_y = { "progress" },
-        lualine_z = { "location" },
+        lualine_y = { 'progress' },
+        lualine_z = { 'location' },
       },
       inactive_sections = {
         lualine_a = {},
@@ -85,8 +85,8 @@ return {
     },
   },
   {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
+    'folke/which-key.nvim',
+    event = 'VeryLazy',
     opts = {
       -- your configuration comes here
       -- or leave it empty to use the default settings
@@ -94,11 +94,11 @@ return {
     },
     keys = {
       {
-        "<leader>?",
+        '<leader>?',
         function()
-          require("which-key").show({ global = false })
+          require('which-key').show { global = false }
         end,
-        desc = "Buffer Local Keymaps (which-key)",
+        desc = 'Buffer Local Keymaps (which-key)',
       },
     },
   },

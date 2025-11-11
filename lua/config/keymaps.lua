@@ -1,55 +1,55 @@
 -- Leader Key Setup
 -- Set space as the global leader key (primary shortcut prefix)
-vim.g.mapleader = " "
+vim.g.mapleader = ' '
 
 -- Set space as the local leader key (buffer-specific shortcuts)
-vim.g.maplocalleader = " "
+vim.g.maplocalleader = ' '
 
 -- Text Movement & Editing
 -- Move selected lines up/down in visual mode (with auto-indent preservation)
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 -- Keep cursor centered when joining lines (J)
-vim.keymap.set("n", "J", "mzJ`z")
+vim.keymap.set('n', 'J', 'mzJ`z')
 
 -- Center cursor when scrolling half-page (C-d/C-u)
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
 -- Center cursor when searching (n/N)
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set('n', 'n', 'nzzzv')
+vim.keymap.set('n', 'N', 'Nzzzv')
 
 -- Clipboard Management
 -- Paste without yanking (avoid overwriting register)
-vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Replace selection without affecting clipboard" })
+vim.keymap.set('x', '<leader>p', [["_dP]], { desc = 'Replace selection without affecting clipboard' })
 
 -- Yank to system clipboard (all modes)
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Copy to system clipboard" })
-vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Yank whole line to system clipboard" })
+vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]], { desc = 'Copy to system clipboard' })
+vim.keymap.set('n', '<leader>Y', [["+Y]], { desc = 'Yank whole line to system clipboard' })
 
 -- Delete without yanking (silent delete)
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete without affecting clipboard" })
+vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]], { desc = 'Delete without affecting clipboard' })
 
 -- Search & Replace
 -- Substitute current word with <leader>s
 -- vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Clear search highlights when pressing Escape
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Open diagnostics in location list
-vim.keymap.set("n", "<leader>l", vim.diagnostic.setloclist, { desc = "Open diagnostics in location list" })
+vim.keymap.set('n', '<leader>l', vim.diagnostic.setloclist, { desc = 'Open diagnostics in location list' })
 
 -- Next/previous error (quickfix list)
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+vim.keymap.set('n', '<C-k>', '<cmd>cnext<CR>zz')
+vim.keymap.set('n', '<C-j>', '<cmd>cprev<CR>zz')
 
 -- Next/previous error (location list)
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+vim.keymap.set('n', '<leader>k', '<cmd>lnext<CR>zz')
+vim.keymap.set('n', '<leader>j', '<cmd>lprev<CR>zz')
 
 -- System Operations
 -- Disable Ex mode (accidental Q press)
-vim.keymap.set("n", "Q", "<nop>")
+vim.keymap.set('n', 'Q', '<nop>')

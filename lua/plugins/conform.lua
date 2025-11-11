@@ -1,39 +1,39 @@
 return {
   {
-    "stevearc/conform.nvim",
+    'stevearc/conform.nvim',
     keys = {
       {
-        "<leader>f",
+        '<leader>f',
         function()
-          require("conform").format({ async = true, lsp_format = "fallback" })
+          require('conform').format { async = true, lsp_format = 'fallback' }
         end,
-        mode = "",
-        desc = "Format buffer",
+        mode = '',
+        desc = 'Format buffer',
       },
     },
     config = function()
-      require("conform").setup({
+      require('conform').setup {
         -- Conform will run multiple formatters sequentially
         -- You can customize some of the format options for the filetype (:help conform.format)
         -- Conform will run the first available formatter
         formatters_by_ft = {
-          javascript = { "biome", "biome-organize-imports" },
-          javascriptreact = { "biome", "biome-organize-imports" },
-          lua = { "stylua" },
-          markdown = { "markdownlint" },
-          python = { "ruff_format" },
-          rust = { "rustfmt", lsp_format = "fallback" },
-          sh = { "shfmt" },
-          bash = { "shfmt" },
-          typescript = { "biome", "biome-organize-imports" },
-          typescriptreact = { "biome", "biome-organize-imports" },
+          javascript = { 'biome', 'biome-organize-imports' },
+          javascriptreact = { 'biome', 'biome-organize-imports' },
+          lua = { 'stylua' },
+          markdown = { 'markdownlint' },
+          python = { 'ruff_format' },
+          rust = { 'rustfmt', lsp_format = 'fallback' },
+          sh = { 'shfmt' },
+          bash = { 'shfmt' },
+          typescript = { 'biome', 'biome-organize-imports' },
+          typescriptreact = { 'biome', 'biome-organize-imports' },
         },
         -- Default formatting options
         default_format_opts = {
           timeout_ms = 3000,
           async = false,
           quiet = false,
-          lsp_format = "fallback",
+          lsp_format = 'fallback',
         },
 
         -- Custom formatter configuration (optional)
@@ -48,7 +48,7 @@ return {
           --   prepend_args = { "-i", "2", "-ci" },
           -- },
         },
-      })
+      }
     end,
   },
 }

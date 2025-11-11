@@ -1,6 +1,6 @@
 -- General UI and Behavior
 -- Enable mouse mode, can be useful for resizing splits for example!
-vim.opt.mouse = ""
+vim.opt.mouse = ''
 
 -- Make line numbers default
 vim.opt.number = true
@@ -43,7 +43,7 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 
 -- Append special characters to filename detection
-vim.opt.isfname:append("@-@")
+vim.opt.isfname:append '@-@'
 
 -- Search and Navigation
 -- Highlight all search matches
@@ -57,7 +57,7 @@ vim.opt.smartcase = true
 vim.opt.ignorecase = true
 
 -- Preview substitutions live, as you type!
-vim.opt.inccommand = "split"
+vim.opt.inccommand = 'split'
 
 -- Backup & Recovery
 -- Disable swap file creation
@@ -68,7 +68,7 @@ vim.opt.backup = false
 
 -- Save undo history across sessions
 vim.opt.undofile = true
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
 
 -- Appearance
 -- Set to true if you have a Nerd Font installed and selected in the terminal
@@ -78,19 +78,19 @@ vim.g.have_nerd_font = true
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Always show sign column for diagnostics/gutter
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = 'yes'
 
 -- Enable true color support in terminal
 vim.opt.termguicolors = true
 
 -- Show visual guide at column 80 (commented out)
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = '80'
 
 -- Spell checking configuration
-vim.opt.spelllang = "en_us"
+vim.opt.spelllang = 'en_us'
 vim.opt.spell = true
 
 -- Performance
