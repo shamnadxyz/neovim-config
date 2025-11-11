@@ -10,6 +10,14 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+    dependencies = {
+      { "mason-org/mason.nvim", opts = {} },
+      { "mason-org/mason-lspconfig.nvim", opts = {} },
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
+      { "j-hui/fidget.nvim", opts = {} },
+      "saghen/blink.cmp",
+    },
+
     config = function()
       vim.diagnostic.config({
         severity_sort = true,
@@ -40,16 +48,31 @@ return {
     end,
   },
   {
-    "mason-org/mason.nvim",
-    opts = {},
-  },
-  {
-    "mason-org/mason-lspconfig.nvim",
-    opts = {},
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    opts = {
+      ensure_installed = {
+        "bashls",
+        "biome",
+        "cssls",
+        "html",
+        "jsonls",
+        "lua_ls",
+        "markdown_oxide",
+        "markdownlint",
+        "pyright",
+        "ruff",
+        "rust_analyzer",
+        "shellcheck",
+        "shellharden",
+        "shfmt",
+        "stylua",
+        "ts_ls",
+      },
+    },
   },
   {
     "folke/trouble.nvim",
-    opts = {}, -- for default options, refer to the configuration section for custom setup.
+    opts = {},
     cmd = "Trouble",
     keys = {
       {
