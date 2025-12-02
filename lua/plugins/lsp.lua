@@ -59,6 +59,8 @@ return {
         'lua_ls',
         'markdown_oxide',
         'markdownlint',
+        'pgformatter',
+        'postgres_lsp',
         'pyright',
         'ruff',
         'rust_analyzer',

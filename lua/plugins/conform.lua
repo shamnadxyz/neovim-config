@@ -27,6 +27,7 @@ return {
           bash = { 'shfmt' },
           typescript = { 'biome', 'biome-organize-imports' },
           typescriptreact = { 'biome', 'biome-organize-imports' },
+          sql = { 'pg_format' },
         },
         -- Default formatting options
         default_format_opts = {
