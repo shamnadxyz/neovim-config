@@ -95,6 +95,7 @@ return {
         { '<leader>h', group = 'Git Hunk' },
         { '<leader>r', group = 'Rename' },
         { '<leader>s', group = 'Search' },
+        { '<leader>t', group = 'Toggle' },
         { '<leader>x', group = 'Diagnostics' },
       },
     },
