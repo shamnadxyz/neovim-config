@@ -19,7 +19,7 @@ return {
       vim.cmd.colorscheme 'catppuccin'
     end
 
-    vim.keymap.set('n', '<leader>t', toggle_transparency, {
+    vim.keymap.set('n', '<leader>tt', toggle_transparency, {
       noremap = true,
       silent = true,
       desc = 'Toggle transparency',
