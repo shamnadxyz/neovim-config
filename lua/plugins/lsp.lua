@@ -19,10 +19,64 @@ return {
     },
 
     config = function()
+      -- LSP Keymaps with capability checking
+      vim.api.nvim_create_autocmd('LspAttach', {
+        group = vim.api.nvim_create_augroup('lsp-keymaps', { clear = true }),
+        callback = function(args)
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          local buf = args.buf
+
+          -- Navigation keymaps (essential)
+          if client:supports_method 'textDocument/definition' then
+            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = buf, desc = 'Goto Definition' })
+          end
+
+          if client:supports_method 'textDocument/references' then
+            vim.keymap.set('n', 'gr', vim.lsp.buf.references, { buffer = buf, desc = 'References', nowait = true })
+          end
+
+          if client:supports_method 'textDocument/implementation' then
+            vim.keymap.set('n', 'gI', vim.lsp.buf.implementation, { buffer = buf, desc = 'Goto Implementation' })
+          end
+
+          if client:supports_method 'textDocument/typeDefinition' then
+            vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, { buffer = buf, desc = 'Goto Type Definition' })
+          end
+
+          if client:supports_method 'textDocument/declaration' then
+            vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = buf, desc = 'Goto Declaration' })
+          end
+
+          -- Help & Information keymaps
+          if client:supports_method 'textDocument/hover' then
+            vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = buf, desc = 'Hover' })
+          end
+
+          if client:supports_method 'textDocument/signatureHelp' then
+            vim.keymap.set('i', '<C-k>', vim.lsp.buf.signature_help, { buffer = buf, desc = 'Signature Help' })
+          end
+
+          -- Code Actions
+          if client:supports_method 'textDocument/codeAction' then
+            vim.keymap.set({ 'n', 'x' }, '<leader>ca', vim.lsp.buf.code_action, { buffer = buf, desc = 'Code Action' })
+          end
+
+          if client:supports_method 'textDocument/rename' then
+            vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { buffer = buf, desc = 'Rename' })
+          end
+
+          -- Optional: Document highlighting
+          if client:supports_method 'textDocument/documentHighlight' then
+            vim.lsp.buf.document_highlight()
+          end
+        end,
+      })
+
       vim.diagnostic.config {
         severity_sort = true,
         float = { border = 'rounded', source = 'if_many' },
         underline = { severity = vim.diagnostic.severity.ERROR },
+        update_in_insert = false,
         signs = vim.g.have_nerd_font and {
           text = {
             [vim.diagnostic.severity.ERROR] = '󰅚 ',
@@ -68,6 +122,8 @@ return {
         'shellharden',
         'shfmt',
         'stylua',
+        'svelte',
+        'tailwindcss',
         'ts_ls',
       },
     },
