@@ -1,5 +1,4 @@
 return {
-  { 'numToStr/Comment.nvim', opts = {} }, -- Commenting
   {
     'folke/todo-comments.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
