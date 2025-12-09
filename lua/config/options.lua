@@ -106,3 +106,6 @@ vim.opt.splitright = true
 
 -- Open new horizontal splits below current window
 vim.opt.splitbelow = true
+
+-- Set rounded borders to all floating windows
+vim.o.winborder = 'rounded'
