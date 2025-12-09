@@ -6,3 +6,41 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+-- Check for file changes when gaining focus or leaving terminal
+vim.api.nvim_create_autocmd({ 'FocusGained', 'TermClose', 'TermLeave' }, {
+  desc = 'Check for file changes when gaining focus or leaving terminal',
+  group = vim.api.nvim_create_augroup('checktime', { clear = true }),
+  callback = function()
+    if vim.o.buftype ~= 'nofile' then
+      vim.cmd 'checktime'
+    end
+  end,
+})
+
+-- Auto-create parent directories when saving files
+vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+  desc = 'Auto-create parent directories when saving files',
+  group = vim.api.nvim_create_augroup('auto-create-dir', { clear = true }),
+  callback = function(event)
+    if event.match:match '^%w%w+:[\\/][\\/]' then
+      return
+    end
+    local file = vim.uv.fs_realpath(event.match) or event.match
+    vim.fn.mkdir(vim.fn.fnamemodify(file, ':p:h'), 'p')
+  end,
+})
+
+-- Close temporary buffers with 'q'
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'help', 'qf', 'notify', 'lspinfo', 'checkhealth', 'man' },
+  desc = 'Close temporary buffers with q',
+  group = vim.api.nvim_create_augroup('close-with-q', { clear = true }),
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set('n', 'q', function()
+      vim.cmd 'close'
+      pcall(vim.api.nvim_buf_delete, event.buf, { force = true })
+    end, { buffer = event.buf, silent = true })
+  end,
+})
