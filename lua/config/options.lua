@@ -16,6 +16,9 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- Minimal number of screen columns to keep to the left and right of the cursor
+vim.opt.sidescrolloff = 10
+
 -- If performing an operation that would fail due to unsaved changes (like `:q`),
 -- raise a dialog asking if you wish to save the current file(s)
 vim.opt.confirm = true
