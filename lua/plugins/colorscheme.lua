@@ -8,6 +8,10 @@ return {
 
     catppuccin.setup {
       transparent_background = transparency,
+      float = {
+        transparent = true,
+        solid = true,
+      },
     }
 
     -- Function to toggle transparency
