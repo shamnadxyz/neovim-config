@@ -45,9 +45,6 @@ vim.opt.smartindent = true
 -- Disable line wrapping at window edge
 vim.opt.wrap = false
 
--- Append special characters to filename detection
-vim.opt.isfname:append '@-@'
-
 -- Search and Navigation
 -- Highlight all search matches
 vim.opt.hlsearch = true
@@ -111,4 +108,4 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 -- Set rounded borders to all floating windows
-vim.o.winborder = 'rounded'
+vim.opt.winborder = 'rounded'
