@@ -1,5 +1,6 @@
 return {
   { 'nvim-mini/mini.ai', version = '*', opts = {} },
-  { 'nvim-mini/mini.pairs', version = '*', opts = {} },
+  { 'nvim-mini/mini.surround', version = '*', opts = {} },
   { 'nvim-mini/mini.operators', version = '*', opts = {} },
+  { 'nvim-mini/mini.comment', version = '*', opts = {} },
 }
