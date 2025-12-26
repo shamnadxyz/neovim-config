@@ -10,9 +10,6 @@ vim.g.maplocalleader = ' '
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
--- Keep cursor centered when joining lines (J)
-vim.keymap.set('n', 'J', 'mzJ`z')
-
 -- Center cursor when scrolling half-page (C-d/C-u)
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
@@ -32,10 +29,6 @@ vim.keymap.set('n', '<leader>Y', [["+Y]], { desc = 'Yank whole line to system cl
 -- Delete without yanking (silent delete)
 vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]], { desc = 'Delete without affecting clipboard' })
 
--- Search & Replace
--- Substitute current word with <leader>s
--- vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
 -- Clear search highlights when pressing Escape
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
@@ -53,3 +46,8 @@ vim.keymap.set('n', '<leader>j', '<cmd>lprev<CR>zz')
 -- System Operations
 -- Disable Ex mode (accidental Q press)
 vim.keymap.set('n', 'Q', '<nop>')
+
+vim.keymap.set('n', '<leader>tv', function()
+  local current = vim.diagnostic.config().virtual_text
+  vim.diagnostic.config { virtual_text = not current }
+end, { desc = 'Toggle Virtual Text' })
