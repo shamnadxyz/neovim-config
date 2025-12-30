@@ -68,6 +68,7 @@ vim.opt.backup = false
 
 -- Save undo history across sessions
 vim.opt.undofile = true
+vim.opt.undolevels = 500
 vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
 
 -- Appearance
