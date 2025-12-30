@@ -64,7 +64,10 @@ return {
       snippets = { preset = 'default' },
 
       -- Experimental signature help support
-      signature = { enabled = true },
+      signature = {
+        enabled = true,
+        window = { show_documentation = false },
+      },
 
       -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
       -- You may use a lua implementation instead by using `implementation = "lua"` or fallback to the lua implementation,
