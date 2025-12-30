@@ -29,10 +29,12 @@ return {
     dependencies = {
       'nvim-lua/plenary.nvim',
       'sindrets/diffview.nvim',
-      'nvim-telescope/telescope.nvim', -- optional
+      'nvim-telescope/telescope.nvim',
     },
+    cmd = 'Neogit',
     keys = {
-      { '<leader>gs', '<cmd>Neogit<cr>', desc = 'Open Neogit' },
+      { '<leader>gg', '<cmd>Neogit<cr>', desc = 'Neogit' },
+      { '<leader>gs', '<cmd>Neogit cwd=%:p:h<cr>', desc = 'Neogit file' },
     },
   },
 }
