@@ -19,71 +19,90 @@ return {
     },
 
     config = function()
-      require('mason').setup()
-
-      local capabilities = require('blink.cmp').get_lsp_capabilities()
-
-      require('mason-lspconfig').setup {
-        handlers = {
-          function(server_name)
-            require('lspconfig')[server_name].setup {
-              capabilities = capabilities,
-            }
-          end,
-        },
-      }
-
-      -- LSP Keymaps with capability checking
       vim.api.nvim_create_autocmd('LspAttach', {
-        group = vim.api.nvim_create_augroup('lsp-keymaps', { clear = true }),
-        callback = function(args)
-          local client = vim.lsp.get_client_by_id(args.data.client_id)
-          local buf = args.buf
+        group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
+        callback = function(event)
+          -- Rename the variable under your cursor.
+          vim.keymap.set('n', 'grn', vim.lsp.buf.rename, { buffer = event.buf, desc = 'Rename' })
 
-          if not client then
-            return
-          end
+          vim.keymap.set({ 'n', 'x' }, 'gca', vim.lsp.buf.code_action, { buffer = event.buf, desc = 'Goto Code Action' })
 
-          -- Navigation keymaps (essential)
-          if client:supports_method 'textDocument/definition' then
-            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = buf, desc = 'Goto Definition' })
-          end
+          -- Find references for the word under your cursor.
+          vim.keymap.set('n', 'grr', require('telescope.builtin').lsp_references, { buffer = event.buf, desc = 'Goto References' })
 
-          if client:supports_method 'textDocument/references' then
-            vim.keymap.set('n', 'gr', vim.lsp.buf.references, { buffer = buf, desc = 'References', nowait = true })
-          end
+          -- Jump to the implementation of the word under your cursor.
+          vim.keymap.set('n', 'gri', vim.lsp.buf.implementation, { buffer = event.buf, desc = 'Goto Implementation' })
 
-          if client:supports_method 'textDocument/implementation' then
-            vim.keymap.set('n', 'gI', vim.lsp.buf.implementation, { buffer = buf, desc = 'Goto Implementation' })
-          end
+          -- Jump to the definition of the word under your cursor.
+          vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = event.buf, desc = 'Goto Definition' })
 
-          if client:supports_method 'textDocument/typeDefinition' then
-            vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, { buffer = buf, desc = 'Goto Type Definition' })
-          end
+          vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = event.buf, desc = 'Goto Declaration' })
 
-          if client:supports_method 'textDocument/declaration' then
-            vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = buf, desc = 'Goto Declaration' })
-          end
+          -- Fuzzy find all the symbols in your current document.
+          vim.keymap.set('n', 'gO', require('telescope.builtin').lsp_document_symbols, { buffer = event.buf, desc = 'Open Document Symbols' })
 
-          -- Help & Information keymaps
-          if client:supports_method 'textDocument/hover' then
-            vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = buf, desc = 'Hover' })
-          end
+          -- Fuzzy find all the symbols in your current workspace.
+          vim.keymap.set('n', 'gW', require('telescope.builtin').lsp_dynamic_workspace_symbols, { buffer = event.buf, desc = 'Open Workspace Symbols' })
 
-          if client:supports_method 'textDocument/signatureHelp' then
-            vim.keymap.set('i', '<C-k>', vim.lsp.buf.signature_help, { buffer = buf, desc = 'Signature Help' })
-          end
+          -- Jump to the type of the word under your cursor.
+          vim.keymap.set('n', 'grt', vim.lsp.buf.type_definition, { buffer = event.buf, desc = 'Goto Type Definition' })
 
-          -- Code Actions
-          if client:supports_method 'textDocument/codeAction' then
-            vim.keymap.set({ 'n', 'x' }, '<leader>ca', vim.lsp.buf.code_action, { buffer = buf, desc = 'Code Action' })
-          end
+          local client = vim.lsp.get_client_by_id(event.data.client_id)
 
-          if client:supports_method 'textDocument/rename' then
-            vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { buffer = buf, desc = 'Rename' })
+          -- Create a keymap to toggle inlay hints
+          if client and client:supports_method 'textDocument/inlayHint' then
+            vim.keymap.set('n', '<leader>th', function()
+              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
+            end, { buffer = event.buf, desc = 'Toggle Inlay Hints' })
           end
         end,
       })
+
+      local capabilities = require('blink.cmp').get_lsp_capabilities()
+      local servers = {
+        bashls = {},
+        biome = {},
+        cssls = {},
+        html = {},
+        jsonls = {},
+        markdown_oxide = {},
+        markdownlint = {},
+        pgformatter = {},
+        postgres_lsp = {},
+        pyright = {},
+        ruff = {},
+        rust_analyzer = {},
+        shellcheck = {},
+        shellharden = {},
+        shfmt = {},
+        stylua = {},
+        svelte = {},
+        tailwindcss = {},
+        ts_ls = {},
+        lua_ls = {
+          settings = {
+            Lua = {
+              completion = {
+                callSnippet = 'Replace',
+              },
+            },
+          },
+        },
+      }
+
+      require('mason-tool-installer').setup { ensure_installed = servers }
+
+      require('mason-lspconfig').setup {
+        ensure_installed = {},
+        automatic_installation = false,
+        handlers = {
+          function(server_name)
+            local server = servers[server_name] or {}
+            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+            require('lspconfig')[server_name].setup(server)
+          end,
+        },
+      }
 
       local severity_icons = {
         [vim.diagnostic.severity.ERROR] = ' ',
@@ -109,33 +128,6 @@ return {
         },
       }
     end,
-  },
-  {
-    'WhoIsSethDaniel/mason-tool-installer.nvim',
-    opts = {
-      ensure_installed = {
-        'bashls',
-        'biome',
-        'cssls',
-        'html',
-        'jsonls',
-        'lua_ls',
-        'markdown_oxide',
-        'markdownlint',
-        'pgformatter',
-        'postgres_lsp',
-        'pyright',
-        'ruff',
-        'rust_analyzer',
-        'shellcheck',
-        'shellharden',
-        'shfmt',
-        'stylua',
-        'svelte',
-        'tailwindcss',
-        'ts_ls',
-      },
-    },
   },
   {
     'folke/trouble.nvim',
