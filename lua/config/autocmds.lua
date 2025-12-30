@@ -33,7 +33,16 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
 
 -- Close temporary buffers with 'q'
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'help', 'qf', 'notify', 'lspinfo', 'checkhealth', 'man' },
+  pattern = {
+    'help',
+    'qf',
+    'notify',
+    'lspinfo',
+    'checkhealth',
+    'man',
+    'gitsigns-blame',
+    'diff',
+  },
   desc = 'Close temporary buffers with q',
   group = vim.api.nvim_create_augroup('close-with-q', { clear = true }),
   callback = function(event)
