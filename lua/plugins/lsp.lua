@@ -25,7 +25,7 @@ return {
           -- Rename the variable under your cursor.
           vim.keymap.set('n', 'grn', vim.lsp.buf.rename, { buffer = event.buf, desc = 'Rename' })
 
-          vim.keymap.set({ 'n', 'x' }, 'gca', vim.lsp.buf.code_action, { buffer = event.buf, desc = 'Goto Code Action' })
+          vim.keymap.set({ 'n', 'x' }, 'gra', vim.lsp.buf.code_action, { buffer = event.buf, desc = 'Goto Code Action' })
 
           -- Find references for the word under your cursor.
           vim.keymap.set('n', 'grr', require('telescope.builtin').lsp_references, { buffer = event.buf, desc = 'Goto References' })
