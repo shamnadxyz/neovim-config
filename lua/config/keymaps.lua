@@ -51,3 +51,9 @@ vim.keymap.set('n', '<leader>tv', function()
   local current = vim.diagnostic.config().virtual_text
   vim.diagnostic.config { virtual_text = not current }
 end, { desc = 'Toggle Virtual Text' })
+
+-- Disable arrow keys
+vim.keymap.set({ 'n', 'i' }, '<left>', '<cmd>echo "Use h"<CR>')
+vim.keymap.set({ 'n', 'i' }, '<right>', '<cmd>echo "Use l"<CR>')
+vim.keymap.set({ 'n', 'i' }, '<up>', '<cmd>echo "Use k"<CR>')
+vim.keymap.set({ 'n', 'i' }, '<down>', '<cmd>echo "Use j"<CR>')
