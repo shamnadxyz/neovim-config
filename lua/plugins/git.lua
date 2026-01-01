@@ -33,8 +33,7 @@ return {
     },
     cmd = 'Neogit',
     keys = {
-      { '<leader>gg', '<cmd>Neogit<cr>', desc = 'Neogit' },
-      { '<leader>gs', '<cmd>Neogit cwd=%:p:h<cr>', desc = 'Neogit file' },
+      { '<leader>gs', '<cmd>Neogit<cr>', desc = 'Neogit' },
     },
   },
 }
