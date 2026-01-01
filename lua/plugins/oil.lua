@@ -1,11 +1,23 @@
 return {
   {
     'stevearc/oil.nvim',
-    opts = {},
-    dependencies = { { 'echasnovski/mini.icons', opts = {} } },
-    keys = {
-      { '<leader>e', '<cmd>Oil<cr>', desc = 'Open Oil File Explorer' },
-    },
     lazy = false,
+    dependencies = { 'nvim-mini/mini.icons' },
+    config = function()
+      require('oil').setup {
+        columns = { 'icon' },
+        keymaps = {
+          ['<C-h>'] = false,
+          ['<C-l>'] = false,
+          ['<C-k>'] = false,
+          ['<C-j>'] = false,
+        },
+        view_options = {
+          show_hidden = true,
+        },
+      }
+
+      vim.keymap.set('n', '<leader>e', '<CMD>Oil<CR>', { desc = 'Open Oil file explorer' })
+    end,
   },
 }
