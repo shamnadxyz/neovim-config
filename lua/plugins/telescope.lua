@@ -35,11 +35,11 @@ return {
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = 'Search Select Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = 'Search current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'Search by grep' })
-      vim.keymap.set('n', '<leader>sG', builtin.git_files, { desc = 'Search git files' })
+      vim.keymap.set('n', '<leader>sp', builtin.git_files, { desc = 'Search project git files' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = 'Search diagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = 'Search resume' })
-      vim.keymap.set('n', '<leader>so', builtin.oldfiles, { desc = 'Search Recent Files ("." for repeat)' })
-      vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Find existing buffers' })
+      vim.keymap.set('n', '<leader>so', builtin.oldfiles, { desc = 'Search old files' })
+      vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = 'Search buffers' })
     end,
   },
 }
