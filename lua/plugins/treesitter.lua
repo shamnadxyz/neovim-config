@@ -1,15 +1,41 @@
 return {
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    lazy = false,
     build = ':TSUpdate',
-    -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-    opts = {
-      auto_install = true,
-      highlight = {
-        enable = true,
-      },
-      indent = { enable = true },
-    },
+    config = function()
+      local treesitter = require 'nvim-treesitter'
+
+      treesitter.install {
+        'bash',
+        'c',
+        'cpp',
+        'css',
+        'gitcommit',
+        'javascript',
+        'lua',
+        'markdown',
+        'python',
+        'rust',
+        'sql',
+        'svelte',
+        'typescript',
+        'zsh',
+      }
+
+      vim.api.nvim_create_autocmd('FileType', {
+        group = vim.api.nvim_create_augroup('treesitter_autostart', { clear = true }),
+        callback = function(args)
+          -- Resolve the filetype to a treesitter language mapping
+          local lang = vim.treesitter.language.get_lang(args.match) or args.match
+
+          -- Check if parser is available
+          if vim.treesitter.get_parser(args.buf, lang, { error = false }) then
+            vim.treesitter.start(args.buf, lang)
+          end
+        end,
+      })
+    end,
   },
   {
     'nvim-treesitter/nvim-treesitter-context',
