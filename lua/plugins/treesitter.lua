@@ -15,6 +15,7 @@ return {
         'javascript',
         'lua',
         'markdown',
+        'json',
         'python',
         'rust',
         'sql',
