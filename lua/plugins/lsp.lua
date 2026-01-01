@@ -52,7 +52,7 @@ return {
           -- Create a keymap to toggle inlay hints
           if client and client:supports_method 'textDocument/inlayHint' then
             vim.keymap.set('n', '<leader>th', function()
-              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
+              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf }, { bufnr = event.buf })
             end, { buffer = event.buf, desc = 'Toggle Inlay Hints' })
           end
         end,
