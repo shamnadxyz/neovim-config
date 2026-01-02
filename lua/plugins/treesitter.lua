@@ -7,7 +7,7 @@ return {
       local treesitter = require 'nvim-treesitter'
 
       treesitter.install {
-        "hyprlang",
+        'hyprlang',
         'bash',
         'c',
         'cpp',
@@ -26,14 +26,11 @@ return {
       }
 
       vim.api.nvim_create_autocmd('FileType', {
-        group = vim.api.nvim_create_augroup('treesitter_autostart', { clear = true }),
-        callback = function(args)
-          -- Resolve the filetype to a treesitter language mapping
-          local lang = vim.treesitter.language.get_lang(args.match) or args.match
-
-          -- Check if parser is available
-          if vim.treesitter.get_parser(args.buf, lang, { error = false }) then
-            vim.treesitter.start(args.buf, lang)
+        group = vim.api.nvim_create_augroup('start-treesitter', { clear = true }),
+        callback = function(event)
+          local lang = vim.treesitter.language.get_lang(event.match)
+          if lang then
+            pcall(vim.treesitter.start, event.buf, lang)
           end
         end,
       })
