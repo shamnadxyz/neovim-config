@@ -89,8 +89,10 @@ return {
           },
         },
       }
+      
+      local ensure_installed = vim.tbl_keys(servers)
 
-      require('mason-tool-installer').setup { ensure_installed = servers }
+      require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       require('mason-lspconfig').setup {
         ensure_installed = {},
