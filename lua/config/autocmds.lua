@@ -46,11 +46,7 @@ vim.api.nvim_create_autocmd('FileType', {
   desc = 'Close temporary buffers with q',
   group = vim.api.nvim_create_augroup('close-with-q', { clear = true }),
   callback = function(event)
-    vim.bo[event.buf].buflisted = false
-    vim.keymap.set('n', 'q', function()
-      vim.cmd 'close'
-      pcall(vim.api.nvim_buf_delete, event.buf, { force = true })
-    end, { buffer = event.buf, silent = true })
+    vim.keymap.set('n', 'q', '<CMD>:q<CR>', { buffer = event.buf, silent = true })
   end,
 })
 
