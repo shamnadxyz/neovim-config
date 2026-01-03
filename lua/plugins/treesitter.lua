@@ -7,12 +7,13 @@ return {
       local treesitter = require 'nvim-treesitter'
 
       treesitter.install {
-        'hyprlang',
         'bash',
         'c',
         'cpp',
         'css',
         'gitcommit',
+        'html',
+        'hyprlang',
         'javascript',
         'json',
         'lua',
