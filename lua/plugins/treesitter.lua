@@ -22,6 +22,7 @@ return {
         'rust',
         'sql',
         'svelte',
+        'toml',
         'typescript',
         'zsh',
       }
