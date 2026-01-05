@@ -7,6 +7,27 @@ return {
       local catppuccin = require 'catppuccin'
       local opts = {
         auto_integrations = true,
+        integrations = {
+          blink_indent = true,
+          blink_cmp = {
+            style = 'bordered',
+          },
+          diffview = true,
+          fidget = true,
+          gitsigns = {
+            enabled = true,
+            transparent = false,
+          },
+          mason = true,
+          neogit = true,
+          treesitter_context = false,
+          render_markdown = true,
+          telescope = {
+            enabled = true,
+          },
+          lsp_trouble = true,
+          which_key = true,
+        },
         transparent_background = true,
         float = {
           transparent = true,

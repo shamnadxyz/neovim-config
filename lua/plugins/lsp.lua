@@ -14,7 +14,13 @@ return {
       { 'mason-org/mason.nvim', opts = {} },
       'mason-org/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim', opts = {
+        notification = {
+          window = {
+            winblend = 0,
+          },
+        },
+      } },
       'saghen/blink.cmp',
     },
 
@@ -89,7 +95,7 @@ return {
           },
         },
       }
-      
+
       local ensure_installed = vim.tbl_keys(servers)
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
