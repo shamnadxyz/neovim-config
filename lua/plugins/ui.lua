@@ -30,18 +30,21 @@ return {
       },
     },
   },
-  {
-    'folke/noice.nvim',
-    event = 'VeryLazy',
-    opts = {
-      -- add any options here
-    },
-    dependencies = {
-      'MunifTanjim/nui.nvim',
-      'rcarriga/nvim-notify',
-    },
-    keys = {
-      { '<leader>nd', '<cmd>Noice dismiss<cr>', { desc = 'Noice dismiss' } },
-    },
-  },
+  -- {
+  --   'folke/noice.nvim',
+  --   event = 'VeryLazy',
+  --   opts = {
+  --     presets = {
+  --       bottom_search = true,
+  --       lsp_doc_border = true,
+  --     },
+  --   },
+  --   dependencies = {
+  --     'MunifTanjim/nui.nvim',
+  --   },
+  --   keys = {
+  --     { '<leader>nd', '<CMD>Noice dismiss<CR>', { desc = 'Noice dismiss' } },
+  --     { '<leader>nh', '<CMD>NoiceTelescope<CR>', { desc = 'Noice history' } },
+  --   },
+  -- },
 }
