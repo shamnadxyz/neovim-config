@@ -20,7 +20,7 @@ return {
           },
           mason = true,
           neogit = true,
-          treesitter_context = false,
+          treesitter_context = true,
           render_markdown = true,
           telescope = {
             enabled = true,
