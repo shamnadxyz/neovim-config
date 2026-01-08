@@ -24,6 +24,7 @@ return {
         'svelte',
         'toml',
         'typescript',
+        'yaml',
         'zsh',
       }
 
