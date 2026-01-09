@@ -12,15 +12,17 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = {
       { 'mason-org/mason.nvim', opts = {} },
-      'mason-org/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
-      { 'j-hui/fidget.nvim', opts = {
-        notification = {
-          window = {
-            winblend = 0,
+      {
+        'j-hui/fidget.nvim',
+        opts = {
+          notification = {
+            window = {
+              winblend = 0,
+            },
           },
         },
-      } },
+      },
       'saghen/blink.cmp',
     },
 
@@ -64,7 +66,6 @@ return {
         end,
       })
 
-      local capabilities = require('blink.cmp').get_lsp_capabilities()
       local servers = {
         bashls = {},
         biome = {},
@@ -72,45 +73,55 @@ return {
         html = {},
         jsonls = {},
         markdown_oxide = {},
-        markdownlint = {},
-        pgformatter = {},
         postgres_lsp = {},
         pyright = {},
         ruff = {},
         rust_analyzer = {},
-        shellcheck = {},
-        shellharden = {},
-        shfmt = {},
-        stylua = {},
         svelte = {},
         tailwindcss = {},
         ts_ls = {},
         lua_ls = {
           settings = {
+            checkThirdParty = false,
             Lua = {
-              completion = {
-                callSnippet = 'Replace',
-              },
+              runtime = { version = 'LuaJIT' },
+              workspace = { library = { vim.env.VIMRUNTIME } },
+              diagnostics = { globals = { 'vim' } },
             },
           },
         },
       }
 
-      local ensure_installed = vim.tbl_keys(servers)
+      local ensure_installed = {
+        'bash-language-server',
+        'biome',
+        'css-lsp',
+        'html-lsp',
+        'json-lsp',
+        'lua-language-server',
+        'markdown-oxide',
+        'markdownlint',
+        'pgformatter',
+        'postgres-language-server',
+        'pyright',
+        'ruff',
+        'rust-analyzer',
+        'shellcheck',
+        'shellharden',
+        'shfmt',
+        'stylua',
+        'svelte-language-server',
+        'tailwindcss-language-server',
+        'typescript-language-server',
+      }
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
-      require('mason-lspconfig').setup {
-        ensure_installed = {},
-        automatic_installation = false,
-        handlers = {
-          function(server_name)
-            local server = servers[server_name] or {}
-            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(server)
-          end,
-        },
-      }
+      for name, config in pairs(servers) do
+        config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
+        vim.lsp.config(name, config)
+        vim.lsp.enable(name)
+      end
 
       local severity_icons = {
         [vim.diagnostic.severity.ERROR] = ' ',
