@@ -2,7 +2,6 @@ return {
   {
     'stevearc/oil.nvim',
     lazy = false,
-    dependencies = { 'nvim-mini/mini.icons' },
     config = function()
       require('oil').setup {
         columns = { 'icon' },

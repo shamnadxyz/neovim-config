@@ -109,4 +109,4 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 -- Set rounded borders to all floating windows
-vim.opt.winborder = 'rounded'
+vim.opt.winborder = ''
