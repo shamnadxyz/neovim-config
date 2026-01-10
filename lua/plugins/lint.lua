@@ -4,12 +4,25 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       local lint = require 'lint'
+
+      -- Disable the default linters
+      lint.linters_by_ft['clojure'] = nil
+      lint.linters_by_ft['dockerfile'] = nil
+      lint.linters_by_ft['inko'] = nil
+      lint.linters_by_ft['janet'] = nil
+      lint.linters_by_ft['json'] = nil
+      lint.linters_by_ft['markdown'] = nil
+      lint.linters_by_ft['rst'] = nil
+      lint.linters_by_ft['ruby'] = nil
+      lint.linters_by_ft['terraform'] = nil
+      lint.linters_by_ft['text'] = nil
+
       lint.linters_by_ft = {
         javascript = { 'biomejs' },
         javascriptreact = { 'biomejs' },
         typescript = { 'biomejs' },
         typescriptreact = { 'biomejs' },
-        markdown = { 'markdownlint' },
+        markdown = { 'vale' },
         python = { 'ruff' },
       }
       local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
