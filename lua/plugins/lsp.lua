@@ -66,10 +66,13 @@ return {
         end,
       })
 
+      -- LSP servers to be configured
+      -- Uncomment the specific servers below to enable them
       local servers = {
         bashls = {},
         biome = {},
         cssls = {},
+        clangd = {},
         html = {},
         jsonls = {},
         markdown_oxide = {},
@@ -92,9 +95,12 @@ return {
         },
       }
 
+      -- Tools to be automatically installed
+      -- Uncomment the tool names below to ensure they are installed
       local ensure_installed = {
         'bash-language-server',
         'biome',
+        'clangd',
         'css-lsp',
         'html-lsp',
         'json-lsp',
