@@ -83,6 +83,7 @@ return {
         svelte = {},
         tailwindcss = {},
         ts_ls = {},
+        vale_ls = {},
         lua_ls = {
           settings = {
             checkThirdParty = false,
