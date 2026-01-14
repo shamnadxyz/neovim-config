@@ -84,6 +84,7 @@ return {
         tailwindcss = {},
         ts_ls = {},
         vale_ls = {},
+        typos_lsp = {},
         lua_ls = {
           settings = {
             checkThirdParty = false,
