@@ -89,8 +89,11 @@ return {
             checkThirdParty = false,
             Lua = {
               runtime = { version = 'LuaJIT' },
-              workspace = { library = { vim.env.VIMRUNTIME } },
-              diagnostics = { globals = { 'vim' } },
+              -- workspace = { library = { vim.env.VIMRUNTIME } },
+              -- diagnostics = { globals = { 'vim' } },
+              completion = {
+                callSnippet = 'Replace',
+              },
             },
           },
         },
