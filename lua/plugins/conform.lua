@@ -17,6 +17,8 @@ return {
         -- You can customize some of the format options for the filetype (:help conform.format)
         -- Conform will run the first available formatter
         formatters_by_ft = {
+          c = { 'clang_format' },
+          cpp = { 'clang_format' },
           javascript = { 'biome', 'biome-organize-imports' },
           javascriptreact = { 'biome', 'biome-organize-imports' },
           lua = { 'stylua' },

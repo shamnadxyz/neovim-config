@@ -61,6 +61,7 @@ return {
         bashls = {},
         biome = {},
         cssls = {},
+        clangd = {},
         html = {},
         jsonls = {},
         markdown_oxide = {},
@@ -84,6 +85,8 @@ return {
       local ensure_installed = {
         'bash-language-server',
         'biome',
+        'clang-format',
+        'clangd',
         'css-lsp',
         'html-lsp',
         'json-lsp',
