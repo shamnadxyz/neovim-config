@@ -17,6 +17,7 @@ return {
         -- You can customize some of the format options for the filetype (:help conform.format)
         -- Conform will run the first available formatter
         formatters_by_ft = {
+          bash = { 'shfmt' },
           c = { 'clang_format' },
           cpp = { 'clang_format' },
           javascript = { 'biome', 'biome-organize-imports' },
@@ -26,10 +27,9 @@ return {
           python = { 'ruff_format', 'ruff_organize_imports' },
           rust = { 'rustfmt', lsp_format = 'fallback' },
           sh = { 'shfmt' },
-          bash = { 'shfmt' },
+          sql = { 'pg_format' },
           typescript = { 'biome', 'biome-organize-imports' },
           typescriptreact = { 'biome', 'biome-organize-imports' },
-          sql = { 'pg_format' },
         },
         -- Default formatting options
         default_format_opts = {
