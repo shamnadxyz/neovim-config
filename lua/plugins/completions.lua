@@ -1,7 +1,6 @@
 return {
   {
     'saghen/blink.cmp',
-    dependencies = { 'rafamadriz/friendly-snippets' },
 
     version = '1.*',
 
@@ -17,6 +16,12 @@ return {
 
       completion = {
         accept = { auto_brackets = { enabled = false } },
+        menu = {
+          -- Don't automatically show the completion menu
+          auto_show = function()
+            return not vim.tbl_contains({ 'markdown' }, vim.bo.filetype)
+          end,
+        },
       },
 
       -- Default sources, extendable via opts_extend
