@@ -12,8 +12,8 @@ return {
       keymap = { preset = 'default' },
 
       appearance = {
-        nerd_font_variant = 'normal',
-        use_nvim_cmp_as_default = true,
+        -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+        nerd_font_variant = 'mono',
       },
 
       completion = {
@@ -23,6 +23,25 @@ return {
           auto_show = function()
             return not vim.tbl_contains({ 'markdown' }, vim.bo.filetype)
           end,
+          draw = {
+            columns = {
+              { 'kind_icon' },
+              { 'label', 'label_description' },
+              { 'kind' },
+            },
+          },
+        },
+        documentation = { auto_show = true },
+        ghost_text = {
+          enabled = true,
+          -- Show the ghost text when an item has been selected
+          show_with_selection = true,
+          -- Show the ghost text when no item has been selected, defaulting to the first item
+          show_without_selection = false,
+          -- Show the ghost text when the menu is open
+          show_with_menu = true,
+          -- Show the ghost text when the menu is closed
+          show_without_menu = false,
         },
       },
 
@@ -40,10 +59,8 @@ return {
         },
       },
 
-      -- Use a preset for snippets, check the snippets documentation for more information
-      snippets = { preset = 'default' },
+      signature = { enabled = true, window = { show_documentation = true } },
 
-      signature = { enabled = true, window = { show_documentation = false } },
 
       fuzzy = { implementation = 'prefer_rust_with_warning' },
     },
