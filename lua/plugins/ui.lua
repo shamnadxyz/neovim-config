@@ -11,10 +11,7 @@ return {
     opts = {
       preset = 'helix',
       spec = {
-        { '<leader>c', group = 'Code' },
-        { '<leader>g', group = 'Git' },
         { '<leader>h', group = 'Git Hunk' },
-        { '<leader>r', group = 'Rename' },
         { '<leader>s', group = 'Search' },
         { '<leader>t', group = 'Toggle' },
         { '<leader>x', group = 'Diagnostics' },
@@ -30,21 +27,4 @@ return {
       },
     },
   },
-  -- {
-  --   'folke/noice.nvim',
-  --   event = 'VeryLazy',
-  --   opts = {
-  --     presets = {
-  --       bottom_search = true,
-  --       lsp_doc_border = true,
-  --     },
-  --   },
-  --   dependencies = {
-  --     'MunifTanjim/nui.nvim',
-  --   },
-  --   keys = {
-  --     { '<leader>nd', '<CMD>Noice dismiss<CR>', { desc = 'Noice dismiss' } },
-  --     { '<leader>nh', '<CMD>NoiceTelescope<CR>', { desc = 'Noice history' } },
-  --   },
-  -- },
 }
