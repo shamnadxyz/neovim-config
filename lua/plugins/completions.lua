@@ -6,6 +6,8 @@ return {
 
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
+    dependencies = { 'L3MON4D3/LuaSnip', version = 'v2.*' },
+
     opts = {
       keymap = { preset = 'default' },
 
@@ -23,6 +25,8 @@ return {
           end,
         },
       },
+
+      snippets = { preset = 'luasnip' },
 
       -- Default sources, extendable via opts_extend
       sources = {
