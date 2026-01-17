@@ -9,6 +9,7 @@ return {
     dependencies = { 'L3MON4D3/LuaSnip', version = 'v2.*' },
 
     opts = {
+      -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
       keymap = { preset = 'default' },
 
       appearance = {
@@ -17,9 +18,9 @@ return {
       },
 
       completion = {
+        -- Disable auto brackets
         accept = { auto_brackets = { enabled = false } },
         menu = {
-          -- Don't automatically show the completion menu
           auto_show = function()
             return not vim.tbl_contains({ 'markdown' }, vim.bo.filetype)
           end,
@@ -49,7 +50,7 @@ return {
 
       -- Default sources, extendable via opts_extend
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer' },
+        default = { 'lsp', 'path', 'snippets' },
       },
 
       cmdline = {
