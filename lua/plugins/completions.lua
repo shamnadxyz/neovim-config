@@ -10,7 +10,11 @@ return {
 
     opts = {
       -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
-      keymap = { preset = 'default' },
+      keymap = {
+        preset = 'default',
+        ['<C-e>'] = false,
+        ['<C-x>'] = { 'cancel', 'fallback' },
+      },
 
       appearance = {
         -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
