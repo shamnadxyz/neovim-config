@@ -4,29 +4,29 @@ return {
     lazy = false,
     build = ':TSUpdate',
     config = function()
-      -- local treesitter = require 'nvim-treesitter'
-      --
-      -- treesitter.install {
-      --   'bash',
-      --   'c',
-      --   'cpp',
-      --   'css',
-      --   'gitcommit',
-      --   'html',
-      --   'hyprlang',
-      --   'javascript',
-      --   'json',
-      --   'lua',
-      --   'markdown',
-      --   'python',
-      --   'rust',
-      --   'sql',
-      --   'svelte',
-      --   'toml',
-      --   'typescript',
-      --   'yaml',
-      --   'zsh',
-      -- }
+      local treesitter = require 'nvim-treesitter'
+
+      treesitter.install {
+        'bash',
+        'c',
+        'cpp',
+        'css',
+        'gitcommit',
+        'html',
+        'hyprlang',
+        'javascript',
+        'json',
+        'lua',
+        'markdown',
+        'python',
+        'rust',
+        'sql',
+        'svelte',
+        'toml',
+        'typescript',
+        'yaml',
+        'zsh',
+      }
 
       vim.api.nvim_create_autocmd('FileType', {
         group = vim.api.nvim_create_augroup('start-treesitter', { clear = true }),
