@@ -66,10 +66,11 @@ vim.g.have_nerd_font = false
 vim.opt.list = true
 
 vim.opt.listchars = {
+  leadmultispace = ' ',
   multispace = '---+',
+  nbsp = '+',
   tab = '<->',
   trail = '-',
-  nbsp = '+',
 }
 
 -- Always show sign column for diagnostics/gutter
