@@ -98,9 +98,6 @@ vim.opt.spell = true
 -- Decrease update time
 vim.opt.updatetime = 250
 
--- Decrease mapped sequence wait time
-vim.opt.timeoutlen = 300
-
 -- Window Management
 -- Open new vertical splits to the right of current window
 vim.opt.splitright = true
