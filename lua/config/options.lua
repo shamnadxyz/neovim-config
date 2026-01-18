@@ -65,6 +65,13 @@ vim.g.have_nerd_font = false
 --  and `:help 'listchars'`
 vim.opt.list = true
 
+vim.opt.listchars = {
+  multispace = '---+',
+  tab = '<->',
+  trail = '-',
+  nbsp = '+',
+}
+
 -- Always show sign column for diagnostics/gutter
 vim.opt.signcolumn = 'yes'
 
