@@ -3,17 +3,6 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = {
       { 'mason-org/mason.nvim', opts = {} },
-      'WhoIsSethDaniel/mason-tool-installer.nvim',
-      {
-        'j-hui/fidget.nvim',
-        opts = {
-          notification = {
-            window = {
-              winblend = 0,
-            },
-          },
-        },
-      },
       'saghen/blink.cmp',
     },
 
@@ -82,33 +71,6 @@ return {
         },
       }
 
-      local ensure_installed = {
-        'bash-language-server',
-        'biome',
-        'clang-format',
-        'clangd',
-        'css-lsp',
-        'html-lsp',
-        'json-lsp',
-        'lua-language-server',
-        'markdown-oxide',
-        'markdownlint',
-        'pgformatter',
-        'postgres-language-server',
-        'pyright',
-        'ruff',
-        'rust-analyzer',
-        'shellcheck',
-        'shellharden',
-        'shfmt',
-        'stylua',
-        'svelte-language-server',
-        'tailwindcss-language-server',
-        'typescript-language-server',
-      }
-
-      require('mason-tool-installer').setup { ensure_installed = ensure_installed }
-
       for name, config in pairs(servers) do
         config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
         vim.lsp.config(name, config)
@@ -127,15 +89,9 @@ return {
         float = { border = 'rounded', source = 'if_many' },
         underline = { severity = vim.diagnostic.severity.ERROR },
         update_in_insert = false,
-        signs = vim.g.have_nerd_font and {
-          text = severity_icons,
-        } or {},
         virtual_text = {
           spacing = 4,
           source = 'if_many',
-          prefix = function(diagnostic)
-            return severity_icons[diagnostic.severity] or '●'
-          end,
         },
       }
     end,
