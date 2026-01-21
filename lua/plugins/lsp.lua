@@ -71,9 +71,9 @@ return {
       local servers = {
         bashls = {},
         biome = {},
+        clangd = {},
         cssls = {},
         harper_ls = {},
-        clangd = {},
         html = {},
         jsonls = {},
         markdown_oxide = {},
@@ -84,8 +84,6 @@ return {
         svelte = {},
         tailwindcss = {},
         ts_ls = {},
-        vale_ls = {},
-        typos_lsp = {},
         lua_ls = {
           settings = {
             checkThirdParty = false,
@@ -109,6 +107,7 @@ return {
         'clang-format',
         'clangd',
         'css-lsp',
+        'harper-ls',
         'html-lsp',
         'json-lsp',
         'lua-language-server',
