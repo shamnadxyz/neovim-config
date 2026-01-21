@@ -72,6 +72,7 @@ return {
         bashls = {},
         biome = {},
         cssls = {},
+        harper_ls = {},
         clangd = {},
         html = {},
         jsonls = {},
