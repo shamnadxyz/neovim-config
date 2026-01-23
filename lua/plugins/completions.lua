@@ -38,7 +38,7 @@ return {
         },
         documentation = { auto_show = true },
         ghost_text = {
-          enabled = true,
+          enabled = false,
           -- Show the ghost text when an item has been selected
           show_with_selection = true,
           -- Show the ghost text when no item has been selected, defaulting to the first item
