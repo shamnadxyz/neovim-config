@@ -16,7 +16,8 @@ return {
           vim.keymap.set({ 'n', 'x' }, 'gra', vim.lsp.buf.code_action, { buffer = event.buf, desc = 'Goto Code Action' })
 
           -- Find references for the word under your cursor.
-          vim.keymap.set('n', 'grr', require('telescope.builtin').lsp_references, { buffer = event.buf, desc = 'Goto References' })
+          vim.keymap.set('n', 'grr', require('telescope.builtin').lsp_references,
+            { buffer = event.buf, desc = 'Goto References' })
 
           -- Jump to the implementation of the word under your cursor.
           vim.keymap.set('n', 'gri', vim.lsp.buf.implementation, { buffer = event.buf, desc = 'Goto Implementation' })
@@ -27,10 +28,12 @@ return {
           vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = event.buf, desc = 'Goto Declaration' })
 
           -- Fuzzy find all the symbols in your current document.
-          vim.keymap.set('n', 'gO', require('telescope.builtin').lsp_document_symbols, { buffer = event.buf, desc = 'Open Document Symbols' })
+          vim.keymap.set('n', 'gO', require('telescope.builtin').lsp_document_symbols,
+            { buffer = event.buf, desc = 'Open Document Symbols' })
 
           -- Fuzzy find all the symbols in your current workspace.
-          vim.keymap.set('n', 'gW', require('telescope.builtin').lsp_dynamic_workspace_symbols, { buffer = event.buf, desc = 'Open Workspace Symbols' })
+          vim.keymap.set('n', 'gW', require('telescope.builtin').lsp_dynamic_workspace_symbols,
+            { buffer = event.buf, desc = 'Open Workspace Symbols' })
 
           -- Jump to the type of the word under your cursor.
           vim.keymap.set('n', 'grt', vim.lsp.buf.type_definition, { buffer = event.buf, desc = 'Goto Type Definition' })
@@ -92,6 +95,7 @@ return {
         virtual_text = {
           spacing = 4,
           source = 'if_many',
+          virt_text_pos = 'eol_right_align'
         },
       }
     end,
