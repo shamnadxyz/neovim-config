@@ -38,6 +38,8 @@ vim.opt.listchars = {
   nbsp = '+',
   tab = '<->',
   trail = '-',
+  precedes = '<',
+  extends = '>'
 }
 
 -- Always draw the signcolumn
