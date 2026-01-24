@@ -78,12 +78,11 @@ return {
         vim.lsp.enable(name)
       end
 
-      local severity_icons = {
-        [vim.diagnostic.severity.ERROR] = ' ',
-        [vim.diagnostic.severity.WARN] = ' ',
-        [vim.diagnostic.severity.INFO] = ' ',
-        [vim.diagnostic.severity.HINT] = ' ',
-      }
+      -- Toggle virtual_text
+      vim.keymap.set('n', '<leader>tv', function()
+        local current = vim.diagnostic.config().virtual_text
+        vim.diagnostic.config { virtual_text = not current }
+      end, { desc = 'Toggle Virtual Text' })
 
       vim.diagnostic.config {
         severity_sort = true,

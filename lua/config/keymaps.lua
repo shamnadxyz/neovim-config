@@ -5,12 +5,16 @@ vim.g.mapleader = ' '
 -- Set space as the local leader key (buffer-specific shortcuts)
 vim.g.maplocalleader = ' '
 
--- Text Movement & Editing
--- Move selected lines up/down in visual mode (with auto-indent preservation)
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
-vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+-- Return to/from Explorer
+-- vim.keymap.set('n', '<leader>e', function()
+--   if vim.bo.filetype == 'netrw' then
+--     pcall(vim.cmd('Rexplore'))
+--   else
+--     vim.cmd('Explore')
+--   end
+-- end, { desc = "Toggle explorer" })
 
--- Center cursor when scrolling half-page (C-d/C-u)
+-- Center cursor when scrolling half-page
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
@@ -34,26 +38,3 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Open diagnostics in location list
 vim.keymap.set('n', '<leader>l', vim.diagnostic.setloclist, { desc = 'Open diagnostics in location list' })
-
--- Next/previous error (quickfix list)
-vim.keymap.set('n', '<C-k>', '<cmd>cnext<CR>zz')
-vim.keymap.set('n', '<C-j>', '<cmd>cprev<CR>zz')
-
--- Next/previous error (location list)
-vim.keymap.set('n', '<leader>k', '<cmd>lnext<CR>zz')
-vim.keymap.set('n', '<leader>j', '<cmd>lprev<CR>zz')
-
--- System Operations
--- Disable Ex mode (accidental Q press)
-vim.keymap.set('n', 'Q', '<nop>')
-
-vim.keymap.set('n', '<leader>tv', function()
-  local current = vim.diagnostic.config().virtual_text
-  vim.diagnostic.config { virtual_text = not current }
-end, { desc = 'Toggle Virtual Text' })
-
--- Disable arrow keys
-vim.keymap.set({ 'n', 'i', 'v' }, '<left>', '<cmd>echo "Use h"<CR>')
-vim.keymap.set({ 'n', 'i', 'v' }, '<right>', '<cmd>echo "Use l"<CR>')
-vim.keymap.set({ 'n', 'i', 'v' }, '<up>', '<cmd>echo "Use k"<CR>')
-vim.keymap.set({ 'n', 'i', 'v' }, '<down>', '<cmd>echo "Use j"<CR>')
