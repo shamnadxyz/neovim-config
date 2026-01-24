@@ -1,70 +1,37 @@
--- General UI and Behavior
--- Enable mouse mode, can be useful for resizing splits for example!
+-- Disable mouse
 vim.opt.mouse = ''
+vim.opt.wrap = false
+-- Shows the effects of a command incrementally in a preview window
+vim.opt.inccommand = 'split'
 
 vim.opt.number = true
 vim.opt.relativenumber = true
-
--- Don't show the mode
-vim.opt.showmode = false
-
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
-
 -- Minimal number of screen columns to keep to the left and right of the cursor
 vim.opt.sidescrolloff = 10
 
--- If performing an operation that would fail due to unsaved changes (like `:q`),
--- raise a dialog asking if you wish to save the current file(s)
-vim.opt.confirm = true
-
--- Editor Behavior
 -- Convert tabs to spaces
 vim.opt.expandtab = true
-
 -- Number of spaces that a tab character represents
 vim.opt.tabstop = 2
-
 -- Number of spaces for each tab during editing
 vim.opt.softtabstop = 2
-
 -- Number of spaces for each indentation level
 vim.opt.shiftwidth = 2
-
--- Enable smart auto-indenting for new lines
 vim.opt.smartindent = true
 
--- Disable line wrapping at window edge
-vim.opt.wrap = false
-
--- Show search matches as you type
+-- Highlight the matched string
 vim.opt.incsearch = true
-
--- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.smartcase = true
 vim.opt.ignorecase = true
 
--- Preview substitutions live, as you type!
-vim.opt.inccommand = 'split'
-
--- Backup & Recovery
--- Disable swap file creation
-vim.opt.swapfile = false
-
 -- Save undo history across sessions
 vim.opt.undofile = true
-vim.opt.undolevels = 500
-vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
+vim.opt.swapfile = false
 
--- Appearance
--- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
-
--- Sets how neovim will display certain whitespace characters in the editor.
---  See `:help 'list'`
---  and `:help 'listchars'`
+-- Useful to see the difference between tabs and spaces and for trailing blanks
 vim.opt.list = true
-
 vim.opt.listchars = {
   leadmultispace = ' ',
   multispace = '---+',
@@ -73,9 +40,8 @@ vim.opt.listchars = {
   trail = '-',
 }
 
--- Always show sign column for diagnostics/gutter
+-- Always draw the signcolumn
 vim.opt.signcolumn = 'yes'
-
 -- Enable true color support in terminal
 vim.opt.termguicolors = true
 
@@ -83,16 +49,7 @@ vim.opt.termguicolors = true
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = true
 
--- Performance
--- Decrease update time
-vim.opt.updatetime = 250
-
--- Window Management
 -- Open new vertical splits to the right of current window
 vim.opt.splitright = true
-
 -- Open new horizontal splits below current window
 vim.opt.splitbelow = true
-
--- Set rounded borders to all floating windows
-vim.opt.winborder = ''
