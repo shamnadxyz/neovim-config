@@ -13,9 +13,6 @@ return {
     },
     config = function()
       require('conform').setup {
-        -- Conform will run multiple formatters sequentially
-        -- You can customize some of the format options for the filetype (:help conform.format)
-        -- Conform will run the first available formatter
         formatters_by_ft = {
           bash = { 'shfmt' },
           c = { 'clang_format' },
