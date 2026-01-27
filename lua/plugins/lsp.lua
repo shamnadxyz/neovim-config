@@ -13,30 +13,27 @@ return {
           -- Rename the variable under your cursor.
           vim.keymap.set('n', 'grn', vim.lsp.buf.rename, { buffer = event.buf, desc = 'Rename' })
 
-          vim.keymap.set({ 'n', 'x' }, 'gra', vim.lsp.buf.code_action, { buffer = event.buf, desc = 'Goto Code Action' })
+          vim.keymap.set({ 'n', 'x' }, 'gra', vim.lsp.buf.code_action, { buffer = event.buf, desc = 'Goto code action' })
 
           -- Find references for the word under your cursor.
-          vim.keymap.set('n', 'grr', require('telescope.builtin').lsp_references,
-            { buffer = event.buf, desc = 'Goto References' })
+          vim.keymap.set('n', 'grr', vim.lsp.buf.references, { buffer = event.buf, desc = 'Goto references' })
 
           -- Jump to the implementation of the word under your cursor.
-          vim.keymap.set('n', 'gri', vim.lsp.buf.implementation, { buffer = event.buf, desc = 'Goto Implementation' })
+          vim.keymap.set('n', 'gri', vim.lsp.buf.implementation, { buffer = event.buf, desc = 'Goto implementation' })
 
           -- Jump to the definition of the word under your cursor.
-          vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = event.buf, desc = 'Goto Definition' })
+          vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = event.buf, desc = 'Goto definition' })
 
-          vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = event.buf, desc = 'Goto Declaration' })
+          vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = event.buf, desc = 'Goto declaration' })
 
-          -- Fuzzy find all the symbols in your current document.
-          vim.keymap.set('n', 'gO', require('telescope.builtin').lsp_document_symbols,
-            { buffer = event.buf, desc = 'Open Document Symbols' })
+          -- Find all the symbols in your current document.
+          vim.keymap.set('n', 'gO', vim.lsp.buf.document_symbol, { buffer = event.buf, desc = 'Open document symbols' })
 
-          -- Fuzzy find all the symbols in your current workspace.
-          vim.keymap.set('n', 'gW', require('telescope.builtin').lsp_dynamic_workspace_symbols,
-            { buffer = event.buf, desc = 'Open Workspace Symbols' })
+          -- Find symbols in your current workspace.
+          vim.keymap.set('n', 'gW', vim.lsp.buf.workspace_symbol, { buffer = event.buf, desc = 'Search workspace symbols' })
 
           -- Jump to the type of the word under your cursor.
-          vim.keymap.set('n', 'grt', vim.lsp.buf.type_definition, { buffer = event.buf, desc = 'Goto Type Definition' })
+          vim.keymap.set('n', 'grt', vim.lsp.buf.type_definition, { buffer = event.buf, desc = 'Goto type definition' })
 
           local client = vim.lsp.get_client_by_id(event.data.client_id)
 
@@ -44,7 +41,7 @@ return {
           if client and client:supports_method 'textDocument/inlayHint' then
             vim.keymap.set('n', '<leader>th', function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf }, { bufnr = event.buf })
-            end, { buffer = event.buf, desc = 'Toggle Inlay Hints' })
+            end, { buffer = event.buf, desc = 'Toggle inlay hints' })
           end
         end,
       })
@@ -104,7 +101,7 @@ return {
         virtual_text = {
           spacing = 4,
           source = 'if_many',
-          virt_text_pos = 'eol_right_align'
+          virt_text_pos = 'eol_right_align',
         },
       }
     end,
@@ -122,7 +119,7 @@ return {
       {
         '<leader>xX',
         '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
-        desc = 'Buffer Diagnostics (Trouble)',
+        desc = 'Buffer diagnostics (Trouble)',
       },
       {
         '<leader>cs',
@@ -132,17 +129,17 @@ return {
       {
         '<leader>cl',
         '<cmd>Trouble lsp toggle focus=false win.position=right<cr>',
-        desc = 'LSP Definitions / references / ... (Trouble)',
+        desc = 'LSP definitions / references / ... (Trouble)',
       },
       {
         '<leader>xL',
         '<cmd>Trouble loclist toggle<cr>',
-        desc = 'Location List (Trouble)',
+        desc = 'Location list (Trouble)',
       },
       {
         '<leader>xQ',
         '<cmd>Trouble qflist toggle<cr>',
-        desc = 'Quickfix List (Trouble)',
+        desc = 'Quickfix list (Trouble)',
       },
     },
   },
