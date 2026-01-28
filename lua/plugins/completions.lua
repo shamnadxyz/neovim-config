@@ -6,15 +6,9 @@ return {
 
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
-    dependencies = { 'L3MON4D3/LuaSnip', version = 'v2.*' },
-
     opts = {
       -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
-      keymap = {
-        preset = 'default',
-        ['<C-e>'] = false,
-        ['<C-x>'] = { 'cancel', 'fallback' },
-      },
+      keymap = { preset = 'default' },
 
       appearance = {
         -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
@@ -49,8 +43,6 @@ return {
           show_without_menu = false,
         },
       },
-
-      snippets = { preset = 'luasnip' },
 
       -- Default sources, extendable via opts_extend
       sources = {
