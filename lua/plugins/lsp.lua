@@ -86,13 +86,17 @@ return {
         ts_ls = {},
         lua_ls = {
           settings = {
-            checkThirdParty = false,
             Lua = {
-              runtime = { version = 'LuaJIT' },
-              -- workspace = { library = { vim.env.VIMRUNTIME } },
-              -- diagnostics = { globals = { 'vim' } },
-              completion = {
-                callSnippet = 'Replace',
+              diagnostics = { globals = { 'vim' } },
+              runtime = { version = 'LuaJIT', path = vim.split(package.path, ';') },
+              workspace = {
+                -- Don't analyze code from submodules
+                ignoreSubmodules = true,
+                -- Add Neovim's methods for easier code writing
+                library = { vim.env.VIMRUNTIME },
+                completion = {
+                  callSnippet = 'Replace',
+                },
               },
             },
           },
