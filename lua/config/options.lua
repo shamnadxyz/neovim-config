@@ -23,9 +23,6 @@ vim.opt.sidescrolloff = 10
 -- raise a dialog asking if you wish to save the current file(s)
 vim.opt.confirm = true
 
--- Disable line cursor (remove blinking block cursor)
---vim.opt.guicursor = ""
-
 -- Editor Behavior
 -- Convert tabs to spaces
 vim.opt.expandtab = true
@@ -92,7 +89,7 @@ vim.opt.colorcolumn = '80'
 
 -- Spell checking configuration
 vim.opt.spelllang = 'en_us'
-vim.opt.spell = true
+vim.opt.spell = false
 
 -- Performance
 -- Decrease update time
