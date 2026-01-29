@@ -30,7 +30,8 @@ return {
           vim.keymap.set('n', 'gO', vim.lsp.buf.document_symbol, { buffer = event.buf, desc = 'Open document symbols' })
 
           -- Find symbols in your current workspace.
-          vim.keymap.set('n', 'gW', vim.lsp.buf.workspace_symbol, { buffer = event.buf, desc = 'Search workspace symbols' })
+          vim.keymap.set('n', 'gW', vim.lsp.buf.workspace_symbol,
+            { buffer = event.buf, desc = 'Search workspace symbols' })
 
           -- Jump to the type of the word under your cursor.
           vim.keymap.set('n', 'grt', vim.lsp.buf.type_definition, { buffer = event.buf, desc = 'Goto type definition' })
@@ -87,23 +88,29 @@ return {
         vim.lsp.enable(name)
       end
 
-      -- Toggle virtual_text
-      vim.keymap.set('n', '<leader>tv', function()
-        local current = vim.diagnostic.config().virtual_text
-        vim.diagnostic.config { virtual_text = not current }
-      end, { desc = 'Toggle Virtual Text' })
+      local virt_text_opts = {
+        spacing = 4,
+        source = 'if_many',
+        virt_text_pos = 'eol_right_align'
+      }
+
+      local show_virt_text = false
 
       vim.diagnostic.config {
         severity_sort = true,
         float = { border = 'rounded', source = 'if_many' },
         underline = { severity = vim.diagnostic.severity.ERROR },
         update_in_insert = false,
-        virtual_text = {
-          spacing = 4,
-          source = 'if_many',
-          virt_text_pos = 'eol_right_align',
-        },
+        virtual_text = show_virt_text,
       }
+
+      -- Toggle virtual text
+      vim.keymap.set('n', '<leader>tv', function()
+        show_virt_text = not show_virt_text
+        vim.diagnostic.config {
+          virtual_text = show_virt_text and virt_text_opts or false
+        }
+      end, { desc = 'Toggle Virtual Text' })
     end,
   },
   {
