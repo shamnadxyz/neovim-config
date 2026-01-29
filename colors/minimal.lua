@@ -42,6 +42,8 @@ hl("NeogitDiffDeleteHighlight", neogit.diff_delete)
 
 -- Editor highlights
 hl("Normal", { fg = light_grey2, bg = dark_grey2 })
+-- Uncomment the line below and comment the above for transparent background
+-- hl("Normal", { fg = light_grey2, bg = nil })
 
 hl("Added", { fg = light_green })
 hl("Changed", { fg = light_yellow })
