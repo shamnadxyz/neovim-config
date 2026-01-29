@@ -14,7 +14,7 @@ local dark_grey1 = "#07080d"
 local dark_grey2 = "#14161b"
 local dark_grey3 = "#2c2e33"
 local dark_grey4 = "#4f5258"
-local dark_magenta = "#451943"
+local dark_magenta = "#5d395a"
 local dark_red = "#521615"
 local dark_yellow = "#574514"
 local light_blue = "#a3d5f7"
@@ -24,7 +24,7 @@ local light_grey2 = "#e0e2ea"
 local light_grey3 = "#c4c6cd"
 local light_grey4 = "#9b9ea4"
 local light_green = "#addbb6"
-local light_magenta = "#ffcaff"
+local light_magenta = "#d6afd6"
 local light_red = "#f9bdb6"
 local light_yellow = "#dfcc99"
 
@@ -35,10 +35,18 @@ local neogit = {
 }
 
 -- Plugin highlights
+
+-- Neogit
 hl("NeogitDiffAdd", neogit.diff_add)
 hl("NeogitDiffAddHighlight", neogit.diff_add)
 hl("NeogitDiffDelete", neogit.diff_delete)
 hl("NeogitDiffDeleteHighlight", neogit.diff_delete)
+
+-- MiniPick
+hl("MiniPickNormal", { bg = nil })
+hl("MiniPickBorder", { bg = nil })
+hl("MiniPickPrompt", { bg = nil })
+hl("MiniPickBorderText", { bg = dark_grey3 })
 
 -- Editor highlights
 hl("Normal", { fg = light_grey2, bg = dark_grey2 })
@@ -65,7 +73,7 @@ hl("LineNr", { fg = dark_grey4 })
 hl("MatchParen", { bg = dark_grey4, bold = true })
 hl("ModeMsg", { fg = light_green })
 hl("MoreMsg", { fg = light_cyan })
-hl("NonText", { fg = dark_grey4 })
+hl("NonText", { fg = dark_grey3 })
 hl("NormalFloat", { bg = dark_grey1 })
 hl("OkMsg", { fg = light_green })
 hl("Pmenu", { bg = dark_grey3 })
@@ -84,7 +92,7 @@ hl("SpellCap", { sp = light_yellow, undercurl = true })
 hl("SpellLocal", { sp = light_green, undercurl = true })
 hl("SpellRare", { sp = light_cyan, undercurl = true })
 hl("StatusLine", { fg = light_grey2, bg = dark_grey3 })
-hl("StatusLineNC", { fg = light_grey3, bg = dark_grey2 })
+hl("StatusLineNC", { fg = light_grey3, bg = dark_grey1 })
 hl("Title", { fg = light_grey2, bold = true })
 hl("Visual", { bg = dark_grey4 })
 hl("WarningMsg", { fg = light_yellow })
