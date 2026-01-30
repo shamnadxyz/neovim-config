@@ -31,16 +31,18 @@ local light_yellow = "#dfcc99"
 -- Plugin Styles
 local neogit = {
   diff_add = { bg = "#0b1a0f", fg = "#bdecc6" },
+  diff_add_highlight = { bg = "#295233", fg = "#addbb6" },
   diff_delete = { bg = "#221013", fg = "#ffcdc6" },
+  diff_delete_highlight = { bg = "#521615", fg = "#f9bdb6" },
 }
 
 -- Plugin highlights
 
 -- Neogit
 hl("NeogitDiffAdd", neogit.diff_add)
-hl("NeogitDiffAddHighlight", neogit.diff_add)
+hl("NeogitDiffAddHighlight", neogit.diff_add_highlight)
 hl("NeogitDiffDelete", neogit.diff_delete)
-hl("NeogitDiffDeleteHighlight", neogit.diff_delete)
+hl("NeogitDiffDeleteHighlight", neogit.diff_delete_highlight)
 
 -- MiniPick
 hl("MiniPickNormal", { bg = nil })
