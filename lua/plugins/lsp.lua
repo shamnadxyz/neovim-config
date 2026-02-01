@@ -59,6 +59,7 @@ return {
         postgres_lsp = {},
         pyright = {},
         ruff = {},
+        prismals = {},
         rust_analyzer = {},
         svelte = {},
         tailwindcss = {},
