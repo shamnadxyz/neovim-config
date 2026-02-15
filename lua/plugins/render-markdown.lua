@@ -7,5 +7,9 @@ return {
   opts = {
     enabled = true,
     checkbox = { checked = { scope_highlight = '@markup.strikethrough' } },
+    heading = {
+      -- Turn off heading icon & background rendering.
+      enabled = false,
+    },
   },
 }
