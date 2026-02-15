@@ -50,6 +50,10 @@ hl('MiniPickBorder', { bg = nil })
 hl('MiniPickPrompt', { bg = nil })
 hl('MiniPickBorderText', { bg = dark_grey3 })
 
+-- RenderMarkdown
+hl('RenderMarkdownCode', { bg = dark_grey1 })
+hl('RenderMarkdownChecked', { fg = light_green })
+
 -- Editor highlights
 hl('Normal', { fg = light_grey2, bg = dark_grey2 })
 -- Uncomment the line below and comment the above for transparent background
