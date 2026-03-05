@@ -63,6 +63,7 @@ return {
         rust_analyzer = {},
         svelte = {},
         tailwindcss = {},
+        tinymist = {},
         ts_ls = {},
         lua_ls = {
           settings = {

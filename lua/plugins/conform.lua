@@ -27,6 +27,7 @@ return {
           sql = { 'pg_format' },
           typescript = { 'biome', 'biome-organize-imports' },
           typescriptreact = { 'biome', 'biome-organize-imports' },
+          typst = { 'prettypst' },
         },
         -- Default formatting options
         default_format_opts = {
