@@ -3,4 +3,4 @@ require 'config.keymaps'
 require 'config.autocmds'
 require 'config.lazy'
 
-vim.cmd.colorscheme 'miniwinter'
+vim.cmd.colorscheme 'minimal'
