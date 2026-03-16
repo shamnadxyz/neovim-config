@@ -58,4 +58,5 @@ return {
       end, { desc = 'Open Oil file explorer' })
     end,
   },
+  { 'nvim-mini/mini.hues', version = '*' },
 }

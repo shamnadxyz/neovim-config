@@ -50,8 +50,6 @@ return {
         silent = true,
         desc = 'Toggle transparency',
       })
-
-      vim.cmd.colorscheme 'catppuccin'
     end,
   },
 }
