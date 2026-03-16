@@ -142,28 +142,42 @@ return {
       end
 
       local severity_icons = {
-        [vim.diagnostic.severity.ERROR] = ' ',
-        [vim.diagnostic.severity.WARN] = ' ',
-        [vim.diagnostic.severity.INFO] = ' ',
-        [vim.diagnostic.severity.HINT] = ' ',
+        [vim.diagnostic.severity.ERROR] = '󰅚 ',
+        [vim.diagnostic.severity.WARN] = '󰀪 ',
+        [vim.diagnostic.severity.INFO] = '󰋽 ',
+        [vim.diagnostic.severity.HINT] = '󰌶 ',
       }
+
+      local virt_text_opts = {
+        spacing = 2,
+        source = 'if_many',
+        virt_text_pos = 'eol_right_align',
+        prefix = function(diagnostic)
+          return severity_icons[diagnostic.severity] or '●'
+        end,
+      }
+
+      local show_virt_text = false
 
       vim.diagnostic.config {
         severity_sort = true,
         float = { border = 'rounded', source = 'if_many' },
         underline = { severity = vim.diagnostic.severity.ERROR },
         update_in_insert = false,
-        signs = vim.g.have_nerd_font and {
+        signs = {
           text = severity_icons,
-        } or {},
-        virtual_text = {
-          spacing = 4,
-          source = 'if_many',
-          prefix = function(diagnostic)
-            return severity_icons[diagnostic.severity] or '●'
-          end,
         },
+        virtual_text = show_virt_text,
+        jump = { float = true },
       }
+
+      -- Toggle virtual text
+      vim.keymap.set('n', '<leader>tv', function()
+        show_virt_text = not show_virt_text
+        vim.diagnostic.config {
+          virtual_text = show_virt_text and virt_text_opts or false,
+        }
+      end, { desc = 'Toggle Virtual Text' })
     end,
   },
   {

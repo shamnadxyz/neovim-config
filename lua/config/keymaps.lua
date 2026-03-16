@@ -23,8 +23,3 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Open diagnostics in location list
 vim.keymap.set('n', '<leader>l', vim.diagnostic.setloclist, { desc = 'Open diagnostics in location list' })
-
-vim.keymap.set('n', '<leader>tv', function()
-  local current = vim.diagnostic.config().virtual_text
-  vim.diagnostic.config { virtual_text = not current }
-end, { desc = 'Toggle Virtual Text' })
