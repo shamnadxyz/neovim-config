@@ -22,9 +22,7 @@ return {
           neogit = true,
           treesitter_context = true,
           render_markdown = true,
-          telescope = {
-            enabled = true,
-          },
+          fzf = true,
           lsp_trouble = true,
           which_key = true,
         },
