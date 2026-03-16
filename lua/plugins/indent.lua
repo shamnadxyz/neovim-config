@@ -4,9 +4,11 @@ return {
     opts = {
       static = {
         char = '▏',
+        highlights = { 'BlinkIndent' },
       },
       scope = {
         char = '▏',
+        highlights = { 'BlinkIndentScope' },
       },
     },
   },
