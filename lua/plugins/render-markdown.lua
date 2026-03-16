@@ -6,6 +6,9 @@ return {
   ---@type render.md.UserConfig
   opts = {
     enabled = true,
-    checkbox = { checked = { scope_highlight = '@markup.strikethrough' } },
+    heading = {
+      enabled = false,
+    },
+    sign = { enabled = false },
   },
 }
