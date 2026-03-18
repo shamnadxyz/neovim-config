@@ -3,42 +3,28 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = {
       { 'mason-org/mason.nvim', opts = {} },
-      'saghen/blink.cmp',
+      { 'saghen/blink.cmp' },
+      { 'ibhagwan/fzf-lua' },
     },
 
     config = function()
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
         callback = function(event)
-          -- Rename the variable under your cursor.
+          local fzf = require 'fzf-lua'
+
           vim.keymap.set('n', 'grn', vim.lsp.buf.rename, { buffer = event.buf, desc = 'Rename' })
-
-          vim.keymap.set({ 'n', 'x' }, 'gra', vim.lsp.buf.code_action, { buffer = event.buf, desc = 'Goto code action' })
-
-          -- Find references for the word under your cursor.
-          vim.keymap.set('n', 'grr', vim.lsp.buf.references, { buffer = event.buf, desc = 'Goto references' })
-
-          -- Jump to the implementation of the word under your cursor.
-          vim.keymap.set('n', 'gri', vim.lsp.buf.implementation, { buffer = event.buf, desc = 'Goto implementation' })
-
-          -- Jump to the definition of the word under your cursor.
-          vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = event.buf, desc = 'Goto definition' })
-
-          vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = event.buf, desc = 'Goto declaration' })
-
-          -- Find all the symbols in your current document.
-          vim.keymap.set('n', 'gO', vim.lsp.buf.document_symbol, { buffer = event.buf, desc = 'Open document symbols' })
-
-          -- Find symbols in your current workspace.
-          vim.keymap.set('n', 'gW', vim.lsp.buf.workspace_symbol,
-            { buffer = event.buf, desc = 'Search workspace symbols' })
-
-          -- Jump to the type of the word under your cursor.
-          vim.keymap.set('n', 'grt', vim.lsp.buf.type_definition, { buffer = event.buf, desc = 'Goto type definition' })
+          vim.keymap.set({ 'n', 'x' }, 'gra', fzf.lsp_code_actions, { buffer = event.buf, desc = 'Code actions' })
+          vim.keymap.set('n', 'grr', fzf.lsp_references, { buffer = event.buf, desc = 'References' })
+          vim.keymap.set('n', 'gri', fzf.lsp_implementations, { buffer = event.buf, desc = 'Implementations' })
+          vim.keymap.set('n', 'gd', fzf.lsp_definitions, { buffer = event.buf, desc = 'Definitions' })
+          vim.keymap.set('n', 'gD', fzf.lsp_declarations, { buffer = event.buf, desc = 'Declarations' })
+          vim.keymap.set('n', 'gO', fzf.lsp_document_symbols, { buffer = event.buf, desc = 'Document symbols' })
+          vim.keymap.set('n', 'gW', fzf.lsp_workspace_symbols, { buffer = event.buf, desc = 'Workspace symbols' })
+          vim.keymap.set('n', 'grt', fzf.lsp_typedefs, { buffer = event.buf, desc = 'Type definitions' })
 
           local client = vim.lsp.get_client_by_id(event.data.client_id)
 
-          -- Create a keymap to toggle inlay hints
           if client and client:supports_method 'textDocument/inlayHint' then
             vim.keymap.set('n', '<leader>th', function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf }, { bufnr = event.buf })
@@ -69,9 +55,7 @@ return {
               diagnostics = { globals = { 'vim' } },
               runtime = { version = 'LuaJIT', path = vim.split(package.path, ';') },
               workspace = {
-                -- Don't analyze code from submodules
                 ignoreSubmodules = true,
-                -- Add Neovim's methods for easier code writing
                 library = { vim.env.VIMRUNTIME },
                 completion = {
                   callSnippet = 'Replace',
@@ -91,7 +75,7 @@ return {
       local virt_text_opts = {
         spacing = 4,
         source = 'if_many',
-        virt_text_pos = 'eol_right_align'
+        virt_text_pos = 'eol_right_align',
       }
 
       local show_virt_text = false
@@ -104,11 +88,10 @@ return {
         virtual_text = show_virt_text,
       }
 
-      -- Toggle virtual text
       vim.keymap.set('n', '<leader>tv', function()
         show_virt_text = not show_virt_text
         vim.diagnostic.config {
-          virtual_text = show_virt_text and virt_text_opts or false
+          virtual_text = show_virt_text and virt_text_opts or false,
         }
       end, { desc = 'Toggle Virtual Text' })
     end,
