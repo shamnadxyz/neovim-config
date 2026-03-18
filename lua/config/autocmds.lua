@@ -1,4 +1,3 @@
--- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
@@ -7,7 +6,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- Check for file changes when gaining focus or leaving terminal
 vim.api.nvim_create_autocmd({ 'FocusGained', 'TermClose', 'TermLeave' }, {
   desc = 'Check for file changes when gaining focus or leaving terminal',
   group = vim.api.nvim_create_augroup('checktime', { clear = true }),
@@ -18,7 +16,6 @@ vim.api.nvim_create_autocmd({ 'FocusGained', 'TermClose', 'TermLeave' }, {
   end,
 })
 
--- Close temporary buffers with 'q'
 vim.api.nvim_create_autocmd('FileType', {
   pattern = {
     'help',
@@ -37,8 +34,8 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
--- resize splits if window got resized
 vim.api.nvim_create_autocmd({ 'VimResized' }, {
+  desc = 'resize splits if window got resized',
   group = vim.api.nvim_create_augroup('resize_splits', { clear = true }),
   callback = function()
     local current_tab = vim.fn.tabpagenr()

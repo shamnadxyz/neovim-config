@@ -1,57 +1,25 @@
--- Disable mouse
-vim.opt.mouse = ''
-vim.opt.wrap = false
--- Shows the effects of a command incrementally in a preview window
-vim.opt.inccommand = 'split'
-
-vim.opt.number = true
-vim.opt.relativenumber = true
--- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
--- Minimal number of screen columns to keep to the left and right of the cursor
-vim.opt.sidescrolloff = 10
-
--- Convert tabs to spaces
-vim.opt.expandtab = true
--- Number of spaces that a tab character represents
-vim.opt.tabstop = 2
--- Number of spaces for each tab during editing
-vim.opt.softtabstop = 2
--- Number of spaces for each indentation level
-vim.opt.shiftwidth = 2
-vim.opt.smartindent = true
-
--- Highlight the matched string
-vim.opt.incsearch = true
-vim.opt.smartcase = true
-vim.opt.ignorecase = true
-
--- Save undo history across sessions
-vim.opt.undofile = true
-vim.opt.swapfile = false
-
--- Useful to see the difference between tabs and spaces and for trailing blanks
-vim.opt.list = true
-vim.opt.listchars = {
-  leadmultispace = ' ',
-  multispace = '---+',
-  nbsp = '+',
-  tab = '<->',
-  trail = '-',
-  precedes = '<',
-  extends = '>'
-}
-
--- Always draw the signcolumn
-vim.opt.signcolumn = 'yes'
--- Enable true color support in terminal
-vim.opt.termguicolors = true
-
--- Spell checking configuration
-vim.opt.spelllang = 'en_us'
-vim.opt.spell = true
-
--- Open new vertical splits to the right of current window
-vim.opt.splitright = true
--- Open new horizontal splits below current window
-vim.opt.splitbelow = true
+vim.o.mouse = ''
+vim.o.expandtab = true
+vim.o.ignorecase = true
+vim.o.inccommand = 'split'
+vim.o.incsearch = true
+vim.o.list = true
+vim.o.listchars = 'leadmultispace: ,multispace:----,nbsp:+,tab:<->,trail:-,precedes:<,extends:>'
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.scrolloff = 10
+vim.o.shiftwidth = 2
+vim.o.sidescrolloff = 10
+vim.o.signcolumn = 'yes'
+vim.o.smartcase = true
+vim.o.smartindent = true
+vim.o.softtabstop = 2
+vim.o.spell = true
+vim.o.spelllang = 'en_us'
+vim.o.splitbelow = true
+vim.o.splitright = true
+vim.o.swapfile = false
+vim.o.tabstop = 2
+vim.o.termguicolors = true
+vim.o.undofile = true
+vim.o.wrap = false
