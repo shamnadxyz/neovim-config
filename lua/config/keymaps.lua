@@ -6,13 +6,13 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Return to/from Explorer
--- vim.keymap.set('n', '<leader>e', function()
---   if vim.bo.filetype == 'netrw' then
---     pcall(vim.cmd('Rexplore'))
---   else
---     vim.cmd('Explore')
---   end
--- end, { desc = "Toggle explorer" })
+vim.keymap.set('n', '<leader>e', function()
+  if vim.bo.filetype == 'netrw' then
+    pcall(vim.cmd('Rexplore'))
+  else
+    vim.cmd('Explore')
+  end
+end, { desc = "Toggle explorer" })
 
 -- Center cursor when scrolling half-page
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
