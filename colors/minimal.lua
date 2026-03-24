@@ -7,26 +7,26 @@ local function hl(group, opts)
 end
 
 -- Color Palette
-local dark_blue = '#1e4b69'
-local dark_cyan = '#297170'
-local dark_green = '#295233'
+local dark_blue = '#014772'
+local dark_cyan = '#016d71'
+local dark_green = '#00562e'
 local dark_grey1 = '#07080d'
 local dark_grey2 = '#14161b'
 local dark_grey3 = '#2c2e33'
 local dark_grey4 = '#4f5258'
-local dark_magenta = '#5d395a'
-local dark_red = '#521615'
-local dark_yellow = '#574514'
-local light_blue = '#a3d5f7'
-local light_cyan = '#a0dbda'
+local dark_magenta = '#4f0b46'
+local dark_red = '#5c0113'
+local dark_yellow = '#565600'
+local light_blue = '#b3daf9'
+local light_cyan = '#a6e1e2'
 local light_grey1 = '#eef1f8'
 local light_grey2 = '#e0e2ea'
 local light_grey3 = '#c4c6cd'
 local light_grey4 = '#9b9ea4'
-local light_green = '#addbb6'
+local light_green = '#b8e1c1'
 local light_magenta = '#d6afd6'
-local light_red = '#f9bdb6'
-local light_yellow = '#dfcc99'
+local light_red = '#fac5c7'
+local light_yellow = '#d9d8aa'
 
 -- Plugin Styles
 local neogit = {
@@ -65,8 +65,8 @@ hl('CursorLine', { bg = dark_grey3 })
 hl('DiffAdd', { fg = light_grey1, bg = dark_green })
 hl('DiffChange', { fg = light_grey1, bg = dark_grey4 })
 hl('DiffDelete', { fg = light_red, bold = true })
-hl('DiffText', { fg = light_grey1, bg = dark_cyan })
-hl('Directory', { fg = light_cyan })
+hl('DiffText', { fg = light_grey1, bg = dark_blue })
+hl('Directory', { fg = light_blue })
 hl('ErrorMsg', { fg = light_red })
 hl('FloatShadow', { bg = dark_grey4 })
 hl('FloatShadowThrough', { bg = dark_grey4 })
@@ -74,14 +74,14 @@ hl('Folded', { fg = light_grey4, bg = dark_grey1 })
 hl('LineNr', { fg = dark_grey4 })
 hl('MatchParen', { bg = dark_grey4, bold = true })
 hl('ModeMsg', { fg = light_green })
-hl('MoreMsg', { fg = light_cyan })
+hl('MoreMsg', { fg = light_blue })
 hl('NonText', { fg = dark_grey3 })
 hl('NormalFloat', { bg = dark_grey1 })
 hl('OkMsg', { fg = light_green })
 hl('Pmenu', { bg = dark_grey3 })
 hl('PmenuThumb', { bg = dark_grey4 })
-hl('Question', { fg = light_cyan })
-hl('QuickFixLine', { fg = light_cyan })
+hl('Question', { fg = light_blue })
+hl('QuickFixLine', { fg = light_blue })
 hl('RedrawDebugClear', { bg = dark_yellow })
 hl('RedrawDebugComposed', { bg = dark_green })
 hl('RedrawDebugRecompose', { bg = dark_red })
@@ -92,7 +92,7 @@ hl('SpecialKey', { fg = dark_grey4 })
 hl('SpellBad', { sp = light_red, undercurl = true })
 hl('SpellCap', { sp = light_yellow, undercurl = true })
 hl('SpellLocal', { sp = light_green, undercurl = true })
-hl('SpellRare', { sp = light_cyan, undercurl = true })
+hl('SpellRare', { sp = light_blue, undercurl = true })
 hl('StatusLine', { fg = light_grey2, bg = dark_grey3 })
 hl('StatusLineNC', { fg = light_grey3, bg = dark_grey1 })
 hl('Title', { fg = light_grey2, bold = true })
@@ -109,22 +109,22 @@ hl('Type', { fg = light_grey2 })
 hl('Delimiter', { fg = light_grey2 })
 hl('Comment', { fg = light_grey4 })
 hl('String', { fg = light_green })
-hl('Identifier', { fg = light_blue })
-hl('Function', { fg = light_cyan })
+hl('Identifier', { fg = light_cyan })
+hl('Function', { fg = light_blue })
 hl('Statement', { fg = light_grey2, bold = true })
-hl('Special', { fg = light_cyan })
+hl('Special', { fg = light_blue })
 hl('Error', { fg = light_grey1, bg = dark_red })
 hl('Todo', { fg = light_grey2, bold = true })
 
 -- Diagnostic
 hl('DiagnosticError', { fg = light_red })
 hl('DiagnosticWarn', { fg = light_yellow })
-hl('DiagnosticInfo', { fg = light_cyan })
-hl('DiagnosticHint', { fg = light_blue })
+hl('DiagnosticInfo', { fg = light_blue })
+hl('DiagnosticHint', { fg = light_cyan })
 hl('DiagnosticOk', { fg = light_green })
 hl('DiagnosticUnderlineError', { sp = light_red, underline = true })
 hl('DiagnosticUnderlineWarn', { sp = light_yellow, underline = true })
-hl('DiagnosticUnderlineInfo', { sp = light_cyan, underline = true })
-hl('DiagnosticUnderlineHint', { sp = light_blue, underline = true })
+hl('DiagnosticUnderlineInfo', { sp = light_blue, underline = true })
+hl('DiagnosticUnderlineHint', { sp = light_cyan, underline = true })
 hl('DiagnosticUnderlineOk', { sp = light_green, underline = true })
 hl('DiagnosticDeprecated', { sp = light_red, strikethrough = true })
