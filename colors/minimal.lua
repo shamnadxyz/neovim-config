@@ -7,16 +7,16 @@ local function hl(group, opts)
 end
 
 -- Color Palette
-local dark_blue = '#014772'
-local dark_cyan = '#016d71'
-local dark_green = '#00562e'
+local dark_blue = '#00324f'
+local dark_cyan = '#004c4e'
+local dark_green = '#003415'
 local dark_grey1 = '#07080d'
 local dark_grey2 = '#14161b'
 local dark_grey3 = '#2c2e33'
 local dark_grey4 = '#4f5258'
-local dark_magenta = '#4f0b46'
-local dark_red = '#5c0113'
-local dark_yellow = '#565600'
+local dark_magenta = '#371134'
+local dark_red = '#410d14'
+local dark_yellow = '#3a3800'
 local light_blue = '#b3daf9'
 local light_cyan = '#a6e1e2'
 local light_grey1 = '#eef1f8'
@@ -24,15 +24,15 @@ local light_grey2 = '#e0e2ea'
 local light_grey3 = '#c4c6cd'
 local light_grey4 = '#9b9ea4'
 local light_green = '#b8e1c1'
-local light_magenta = '#d6afd6'
+local light_magenta = '#edc7e7'
 local light_red = '#fac5c7'
 local light_yellow = '#d9d8aa'
 
 -- Plugin Styles
 local neogit = {
-  diff_add = { bg = '#0b1a0f', fg = '#bdecc6' },
+  diff_add = { bg = '#003415', fg = '#b8e1c1' },
   diff_add_highlight = { bg = '#295233', fg = '#addbb6' },
-  diff_delete = { bg = '#221013', fg = '#ffcdc6' },
+  diff_delete = { bg = '#410d14', fg = '#fac5c7' },
   diff_delete_highlight = { bg = '#521615', fg = '#f9bdb6' },
 }
 
