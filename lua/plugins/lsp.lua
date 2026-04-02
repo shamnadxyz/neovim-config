@@ -43,6 +43,7 @@ return {
         jsonls = {},
         markdown_oxide = {},
         postgres_lsp = {},
+        prismals = {},
         pyright = {},
         ruff = {},
         rust_analyzer = {},
