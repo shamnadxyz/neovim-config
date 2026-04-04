@@ -1,7 +1,6 @@
 -- Leader Key Setup
 -- Set space as the global leader key (primary shortcut prefix)
 vim.g.mapleader = ' '
-
 -- Set space as the local leader key (buffer-specific shortcuts)
 vim.g.maplocalleader = ' '
 
