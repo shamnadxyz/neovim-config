@@ -6,6 +6,8 @@ local function hl(group, opts)
   vim.api.nvim_set_hl(0, group, opts)
 end
 
+local transparent = false
+
 -- Color Palette
 local dark_blue = '#00324f'
 local dark_cyan = '#004c4e'
@@ -50,10 +52,11 @@ hl('MiniPickBorder', { bg = nil })
 hl('MiniPickPrompt', { bg = nil })
 hl('MiniPickBorderText', { bg = dark_grey3 })
 
--- Editor highlights
 hl('Normal', { fg = light_grey2, bg = dark_grey2 })
--- Uncomment the line below and comment the above for transparent background
--- hl("Normal", { fg = light_grey2, bg = nil })
+
+if transparent then
+  hl('Normal', { fg = light_grey2, bg = nil })
+end
 
 hl('Added', { fg = light_green })
 hl('Changed', { fg = light_yellow })
