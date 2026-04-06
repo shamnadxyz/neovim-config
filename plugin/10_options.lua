@@ -1,5 +1,4 @@
 vim.g.mapleader = ' '
-vim.g.have_nerd_font = true
 
 vim.o.mouse = 'a'
 vim.o.undofile = true
