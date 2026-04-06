@@ -33,8 +33,10 @@ local light_yellow = '#d9d8aa'
 -- Plugin Styles
 local neogit = {
   diff_add = { bg = '#003415', fg = '#b8e1c1' },
+  diff_add_inline = { bg = '#b8e1c1', fg = '#003415' },
   diff_add_highlight = { bg = '#295233', fg = '#addbb6' },
   diff_delete = { bg = '#410d14', fg = '#fac5c7' },
+  diff_delete_inline = { bg = '#fac5c7', fg = '#410d14' },
   diff_delete_highlight = { bg = '#521615', fg = '#f9bdb6' },
 }
 
@@ -45,6 +47,8 @@ hl('NeogitDiffAdd', neogit.diff_add)
 hl('NeogitDiffAddHighlight', neogit.diff_add_highlight)
 hl('NeogitDiffDelete', neogit.diff_delete)
 hl('NeogitDiffDeleteHighlight', neogit.diff_delete_highlight)
+hl('NeogitDiffDeleteInline', neogit.diff_delete_inline)
+hl('NeogitDiffAddInline', neogit.diff_add_inline)
 
 -- MiniPick
 hl('MiniPickNormal', { bg = nil })
