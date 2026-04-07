@@ -35,10 +35,6 @@ vim.pack.add {
     src = 'https://github.com/neovim/nvim-lspconfig',
   },
   {
-    src = 'https://github.com/mason-org/mason.nvim',
-    version = vim.version.range '2.x',
-  },
-  {
     src = 'https://github.com/nvim-lua/plenary.nvim',
   },
   {
@@ -53,7 +49,7 @@ vim.pack.add {
   {
     src = 'https://github.com/nvim-treesitter/nvim-treesitter',
     version = 'main',
-  },
+  }
 }
 
 vim.cmd ':packadd nvim.undotree'
