@@ -12,7 +12,6 @@ vim.o.signcolumn = 'yes'
 vim.o.smartcase = true
 vim.o.smartindent = true
 vim.o.softtabstop = 2
-vim.o.spell = true
 vim.o.spelllang = 'en_us'
 vim.o.splitbelow = true
 vim.o.splitright = true
