@@ -1,1 +1,3 @@
-vim.cmd.colorscheme("minimal")
+require('vim._core.ui2').enable()
+
+vim.cmd.colorscheme 'minimal'
