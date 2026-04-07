@@ -1,11 +1,3 @@
-vim.pack.add {
-  {
-    src = 'https://github.com/stevearc/conform.nvim',
-    version = vim.version.range('9.x'),
-    name = 'conform'
-  }
-}
-
 local conform = require 'conform'
 
 conform.setup {
