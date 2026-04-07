@@ -1,7 +1,6 @@
 local treesitter = require 'nvim-treesitter'
 
 treesitter.install {
-  'bash',
   -- 'c',
   -- 'cpp',
   -- 'css',
