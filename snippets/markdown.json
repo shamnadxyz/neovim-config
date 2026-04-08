@@ -1,0 +1,14 @@
+{
+  "Markdown Properties": {
+    "prefix": "prop",
+    "body": [
+      "---",
+      "date: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
+      "title: $1",
+      "---",
+      "",
+      "$0"
+    ],
+    "description": "boilerplate"
+  }
+}
