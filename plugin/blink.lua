@@ -61,7 +61,14 @@ cmp.setup {
 
   -- Default sources, extendable via opts_extend
   sources = {
-    default = { 'lsp', 'path', 'snippets' },
+    default = { 'lsp', 'path', 'snippets', 'dynamic', 'buffer' },
+    providers = {
+      dynamic = {
+        name = 'Dynamic',
+        module = 'dynamic',
+        opts = {},
+      },
+    },
   },
 
   cmdline = {
