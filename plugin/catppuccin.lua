@@ -1,5 +1,3 @@
-vim.pack.add { 'https://github.com/catppuccin/nvim' }
-
 local catppuccin = require 'catppuccin'
 local opts = {
   auto_integrations = true,

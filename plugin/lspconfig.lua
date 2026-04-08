@@ -1,14 +1,3 @@
-vim.pack.add {
-  {
-    src = 'https://github.com/j-hui/fidget.nvim',
-    name = 'fidget',
-    version = vim.version.range '1.6.x',
-  },
-  { src = 'https://github.com/mason-org/mason.nvim' },
-  { src = 'https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim' },
-  { src = 'https://github.com/neovim/nvim-lspconfig' },
-}
-
 local mason = require 'mason'
 local fidget = require 'fidget'
 

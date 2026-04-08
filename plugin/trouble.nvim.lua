@@ -1,10 +1,3 @@
-vim.pack.add {
-  {
-    src = 'https://github.com/folke/trouble.nvim',
-    version = vim.version.range('3.7.x'),
-  }
-}
-
 local trouble = require 'trouble'
 
 trouble.setup()

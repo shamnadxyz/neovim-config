@@ -1,14 +1,3 @@
-vim.pack.add {
-  {
-    src = 'https://github.com/saghen/blink.indent',
-    version = vim.version.range '2.x',
-  },
-  {
-    src = 'https://github.com/saghen/blink.cmp',
-    version = vim.version.range '1.x',
-  },
-}
-
 local indent = require 'blink.indent'
 
 indent.setup {

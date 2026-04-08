@@ -1,17 +1,3 @@
-vim.pack.add {
-  {
-    src = 'https://github.com/folke/todo-comments.nvim',
-    version = 'stable',
-  },
-  {
-    src = 'https://github.com/nvim-lua/plenary.nvim',
-  },
-  {
-    src = 'https://github.com/folke/which-key.nvim',
-    version = 'stable',
-  },
-}
-
 require('todo-comments').setup()
 local which_key = require 'which-key'
 
