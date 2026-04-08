@@ -19,7 +19,6 @@ vim.pack.add {
     src = 'https://github.com/saghen/blink.cmp',
     version = vim.version.range '1.x',
   },
-  { src = 'https://github.com/catppuccin/nvim', name = 'catppuccin' },
   {
     src = 'https://github.com/stevearc/conform.nvim',
     version = vim.version.range '9.x',
