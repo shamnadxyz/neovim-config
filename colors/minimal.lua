@@ -3,7 +3,7 @@ local palette
 --stylua: ignore
 if vim.o.background == 'dark' then
   palette = {
-    bg_edge2 = '#000f15', bg_edge = '#051a20', bg = '#11262d', bg_mid = '#323f43', bg_mid2 = '#485f67',
+    bg_edge2 = '#000f15', bg_edge = '#151a20', bg = '#11262d', bg_mid = '#323f43', bg_mid2 = '#485f67',
     fg_edge2 = '#f4f0e9', fg_edge = '#e6e2db', fg = '#d8d4cd', fg_mid = '#b8b4ad', fg_mid2 = '#98948e',
 
     accent = '#b3daf9', accent_bg = '#202a2f',
@@ -38,6 +38,6 @@ end
 require('mini.hues').apply_palette(palette)
 
 -- Uncomment the line below for transparent background
--- vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
 
 vim.g.colors_name = 'minimal'
