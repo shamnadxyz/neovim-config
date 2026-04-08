@@ -1,31 +1,31 @@
-require('mini.ai').setup()
-require('mini.surround').setup()
-require('mini.operators').setup()
-require('mini.statusline').setup()
-require('mini.icons').setup()
+require("mini.ai").setup()
+require("mini.surround").setup()
+require("mini.operators").setup()
+require("mini.statusline").setup()
+require("mini.icons").setup()
 
-vim.cmd.colorscheme 'minimal'
+vim.cmd.colorscheme("minimal")
 
-local minifiles = require 'mini.files'
+local minifiles = require("mini.files")
 
-minifiles.setup {
+minifiles.setup({
 
   -- Module mappings created only inside explorer.
   -- Use `''` (empty string) to not create one.
   mappings = {
-    close = 'q',
-    go_in = 'l',
-    go_in_plus = 'L',
-    go_out = 'h',
-    go_out_plus = 'H',
+    close = "q",
+    go_in = "l",
+    go_in_plus = "L",
+    go_out = "h",
+    go_out_plus = "H",
     mark_goto = "'",
-    mark_set = 'm',
-    reset = '<BS>',
-    reveal_cwd = '@',
-    show_help = 'g?',
-    synchronize = '=',
-    trim_left = '<',
-    trim_right = '>',
+    mark_set = "m",
+    reset = "<BS>",
+    reveal_cwd = "@",
+    show_help = "g?",
+    synchronize = "=",
+    trim_left = "<",
+    trim_right = ">",
   },
 
   -- General options
@@ -49,10 +49,10 @@ minifiles.setup {
     -- Width of preview window
     width_preview = 80,
   },
-}
+})
 
-vim.keymap.set('n', '<leader>e', function()
+vim.keymap.set("n", "<leader>e", function()
   if not minifiles.close() then
     minifiles.open()
   end
-end, { desc = 'Open Oil file explorer' })
+end, { desc = "Open Oil file explorer" })

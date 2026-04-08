@@ -10,20 +10,20 @@ end
 
 -- Enable the source in specific contexts only
 function source:enabled()
-  return vim.bo.filetype == 'markdown'
+  return vim.bo.filetype == "markdown"
 end
 
 function source:get_completions(ctx, callback)
   --- @type lsp.CompletionItem[]
-  local items = require('dynamic.datetime').Items
+  local items = require("dynamic.datetime").Items
 
-  callback {
+  callback({
     items = items,
     -- Request completion while deleting characters
     is_incomplete_backward = false,
     -- Request completion while inserting characters
     is_incomplete_forward = false,
-  }
+  })
 
   return function() end
 end

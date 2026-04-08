@@ -1,45 +1,45 @@
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking text',
-  group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight when yanking text",
+  group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
   callback = function()
     vim.hl.on_yank()
   end,
 })
 
-vim.api.nvim_create_autocmd({ 'FocusGained', 'TermClose', 'TermLeave' }, {
-  desc = 'Check for file changes when gaining focus or leaving terminal',
-  group = vim.api.nvim_create_augroup('checktime', { clear = true }),
+vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
+  desc = "Check for file changes when gaining focus or leaving terminal",
+  group = vim.api.nvim_create_augroup("checktime", { clear = true }),
   callback = function()
-    if vim.o.buftype ~= 'nofile' then
-      vim.cmd 'checktime'
+    if vim.o.buftype ~= "nofile" then
+      vim.cmd("checktime")
     end
   end,
 })
 
-vim.api.nvim_create_autocmd('FileType', {
+vim.api.nvim_create_autocmd("FileType", {
   pattern = {
-    'help',
-    'qf',
-    'notify',
-    'lspinfo',
-    'checkhealth',
-    'man',
-    'gitsigns-blame',
-    'diff',
+    "help",
+    "qf",
+    "notify",
+    "lspinfo",
+    "checkhealth",
+    "man",
+    "gitsigns-blame",
+    "diff",
   },
-  desc = 'Close temporary buffers with q',
-  group = vim.api.nvim_create_augroup('close-with-q', { clear = true }),
+  desc = "Close temporary buffers with q",
+  group = vim.api.nvim_create_augroup("close-with-q", { clear = true }),
   callback = function(event)
-    vim.keymap.set('n', 'q', '<CMD>:q<CR>', { buffer = event.buf, silent = true })
+    vim.keymap.set("n", "q", "<CMD>:q<CR>", { buffer = event.buf, silent = true })
   end,
 })
 
-vim.api.nvim_create_autocmd({ 'VimResized' }, {
-  desc = 'resize splits if window got resized',
-  group = vim.api.nvim_create_augroup('resize_splits', { clear = true }),
+vim.api.nvim_create_autocmd({ "VimResized" }, {
+  desc = "resize splits if window got resized",
+  group = vim.api.nvim_create_augroup("resize_splits", { clear = true }),
   callback = function()
     local current_tab = vim.fn.tabpagenr()
-    vim.cmd 'tabdo wincmd ='
-    vim.cmd('tabnext ' .. current_tab)
+    vim.cmd("tabdo wincmd =")
+    vim.cmd("tabnext " .. current_tab)
   end,
 })

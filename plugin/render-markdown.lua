@@ -1,9 +1,9 @@
-local render = require 'render-markdown'
+local render = require("render-markdown")
 
-render.setup {
+render.setup({
   enabled = true,
   heading = {
     enabled = false,
   },
   sign = { enabled = false },
-}
+})

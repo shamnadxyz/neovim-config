@@ -35,9 +35,9 @@ else
   }
 end
 
-require('mini.hues').apply_palette(palette)
+require("mini.hues").apply_palette(palette)
 
 -- Uncomment the line below for transparent background
 vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
 
-vim.g.colors_name = 'minimal'
+vim.g.colors_name = "minimal"

@@ -1,51 +1,76 @@
-local mason = require 'mason'
-local fidget = require 'fidget'
+local mason = require("mason")
+local fidget = require("fidget")
 
-fidget.setup {
+fidget.setup({
   notification = {
     window = {
       winblend = 0,
     },
   },
-}
+})
 mason.setup()
 
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
   callback = function(event)
-    local fzf = require 'fzf-lua'
-    -- Rename the variable under your cursor.
-    vim.keymap.set('n', 'grn', vim.lsp.buf.rename, { buffer = event.buf, desc = 'Rename' })
+    local fzf = require("fzf-lua")
+    vim.keymap.set("n", "grn", vim.lsp.buf.rename, { buffer = event.buf, desc = "Rename" })
 
-    vim.keymap.set({ 'n', 'x' }, 'gra', fzf.lsp_code_actions, { buffer = event.buf, desc = 'Goto Code Action' })
+    vim.keymap.set(
+      { "n", "x" },
+      "gra",
+      fzf.lsp_code_actions,
+      { buffer = event.buf, desc = "Goto Code Action" }
+    )
 
-    -- Find references for the word under your cursor.
-    vim.keymap.set('n', 'grr', fzf.lsp_references, { buffer = event.buf, desc = 'Goto References' })
+    vim.keymap.set("n", "grr", fzf.lsp_references, { buffer = event.buf, desc = "Goto References" })
 
-    -- Jump to the implementation of the word under your cursor.
-    vim.keymap.set('n', 'gri', fzf.lsp_implementations, { buffer = event.buf, desc = 'Goto Implementation' })
+    vim.keymap.set(
+      "n",
+      "gri",
+      fzf.lsp_implementations,
+      { buffer = event.buf, desc = "Goto Implementation" }
+    )
 
-    -- Jump to the definition of the word under your cursor.
-    vim.keymap.set('n', 'gd', fzf.lsp_definitions, { buffer = event.buf, desc = 'Goto Definition' })
+    vim.keymap.set("n", "gd", fzf.lsp_definitions, { buffer = event.buf, desc = "Goto Definition" })
 
-    vim.keymap.set('n', 'gD', fzf.lsp_declarations, { buffer = event.buf, desc = 'Goto Declaration' })
+    vim.keymap.set(
+      "n",
+      "gD",
+      fzf.lsp_declarations,
+      { buffer = event.buf, desc = "Goto Declaration" }
+    )
 
-    -- Fuzzy find all the symbols in your current document.
-    vim.keymap.set('n', 'gO', fzf.lsp_document_symbols, { buffer = event.buf, desc = 'Open Document Symbols' })
+    vim.keymap.set(
+      "n",
+      "gO",
+      fzf.lsp_document_symbols,
+      { buffer = event.buf, desc = "Open Document Symbols" }
+    )
 
-    -- Fuzzy find all the symbols in your current workspace.
-    vim.keymap.set('n', 'gW', fzf.lsp_workspace_symbols, { buffer = event.buf, desc = 'Open Workspace Symbols' })
+    vim.keymap.set(
+      "n",
+      "gW",
+      fzf.lsp_workspace_symbols,
+      { buffer = event.buf, desc = "Open Workspace Symbols" }
+    )
 
-    -- Jump to the type of the word under your cursor.
-    vim.keymap.set('n', 'grt', fzf.lsp_typedefs, { buffer = event.buf, desc = 'Goto Type Definition' })
+    vim.keymap.set(
+      "n",
+      "grt",
+      fzf.lsp_typedefs,
+      { buffer = event.buf, desc = "Goto Type Definition" }
+    )
 
     local client = vim.lsp.get_client_by_id(event.data.client_id)
 
-    -- Create a keymap to toggle inlay hints
-    if client and client:supports_method 'textDocument/inlayHint' then
-      vim.keymap.set('n', '<leader>th', function()
-        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf }, { bufnr = event.buf })
-      end, { buffer = event.buf, desc = 'Toggle Inlay Hints' })
+    if client and client:supports_method("textDocument/inlayHint") then
+      vim.keymap.set("n", "<leader>th", function()
+        vim.lsp.inlay_hint.enable(
+          not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }),
+          { bufnr = event.buf }
+        )
+      end, { buffer = event.buf, desc = "Toggle Inlay Hints" })
     end
   end,
 })
@@ -71,15 +96,15 @@ local servers = {
   lua_ls = {
     settings = {
       Lua = {
-        diagnostics = { globals = { 'vim' } },
-        runtime = { version = 'LuaJIT', path = vim.split(package.path, ';') },
+        diagnostics = { globals = { "vim" } },
+        runtime = { version = "LuaJIT", path = vim.split(package.path, ";") },
         workspace = {
           -- Don't analyze code from submodules
           ignoreSubmodules = true,
           -- Add Neovim's methods for easier code writing
           library = { vim.env.VIMRUNTIME },
           completion = {
-            callSnippet = 'Replace',
+            callSnippet = "Replace",
           },
         },
       },
@@ -90,60 +115,60 @@ local servers = {
 -- Tools to be automatically installed
 -- Uncomment the tool names below to ensure they are installed
 local ensure_installed = {
-  'bash-language-server',
-  'biome',
-  'clang-format',
-  'clangd',
-  'css-lsp',
-  'harper-ls',
-  'html-lsp',
-  'json-lsp',
-  'lua-language-server',
-  'markdown-oxide',
-  'markdownlint',
-  'pgformatter',
-  'postgres-language-server',
-  'pyright',
-  'ruff',
-  'rust-analyzer',
-  'shellcheck',
-  'shellharden',
-  'shfmt',
-  'stylua',
-  'svelte-language-server',
-  'tailwindcss-language-server',
-  'typescript-language-server',
+  "bash-language-server",
+  "biome",
+  "clang-format",
+  "clangd",
+  "css-lsp",
+  "harper-ls",
+  "html-lsp",
+  "json-lsp",
+  "lua-language-server",
+  "markdown-oxide",
+  "markdownlint",
+  "pgformatter",
+  "postgres-language-server",
+  "pyright",
+  "ruff",
+  "rust-analyzer",
+  "shellcheck",
+  "shellharden",
+  "shfmt",
+  "stylua",
+  "svelte-language-server",
+  "tailwindcss-language-server",
+  "typescript-language-server",
 }
 
-require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 for name, config in pairs(servers) do
-  config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
+  config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
   vim.lsp.config(name, config)
   vim.lsp.enable(name)
 end
 
 local severity_icons = {
-  [vim.diagnostic.severity.ERROR] = '󰅚 ',
-  [vim.diagnostic.severity.WARN] = '󰀪 ',
-  [vim.diagnostic.severity.INFO] = '󰋽 ',
-  [vim.diagnostic.severity.HINT] = '󰌶 ',
+  [vim.diagnostic.severity.ERROR] = "󰅚 ",
+  [vim.diagnostic.severity.WARN] = "󰀪 ",
+  [vim.diagnostic.severity.INFO] = "󰋽 ",
+  [vim.diagnostic.severity.HINT] = "󰌶 ",
 }
 
 local virt_text_opts = {
   spacing = 2,
-  source = 'if_many',
-  virt_text_pos = 'eol_right_align',
+  source = "if_many",
+  virt_text_pos = "eol_right_align",
   prefix = function(diagnostic)
-    return severity_icons[diagnostic.severity] or '●'
+    return severity_icons[diagnostic.severity] or "●"
   end,
 }
 
 local show_virt_text = false
 
-vim.diagnostic.config {
+vim.diagnostic.config({
   severity_sort = true,
-  float = { border = 'rounded', source = 'if_many' },
+  float = { border = "rounded", source = "if_many" },
   underline = { severity = vim.diagnostic.severity.ERROR },
   update_in_insert = false,
   signs = {
@@ -151,12 +176,12 @@ vim.diagnostic.config {
   },
   virtual_text = show_virt_text,
   jump = { float = true },
-}
+})
 
 -- Toggle virtual text
-vim.keymap.set('n', '<leader>tv', function()
+vim.keymap.set("n", "<leader>tv", function()
   show_virt_text = not show_virt_text
-  vim.diagnostic.config {
+  vim.diagnostic.config({
     virtual_text = show_virt_text and virt_text_opts or false,
-  }
-end, { desc = 'Toggle Virtual Text' })
+  })
+end, { desc = "Toggle Virtual Text" })

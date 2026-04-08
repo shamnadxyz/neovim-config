@@ -1,1 +1,1 @@
-vim.keymap.set('n', '<leader>u', '<cmd>Undotree<cr>')
+vim.keymap.set("n", "<leader>u", "<cmd>Undotree<cr>")

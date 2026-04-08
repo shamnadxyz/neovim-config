@@ -1,36 +1,36 @@
-local indent = require 'blink.indent'
+local indent = require("blink.indent")
 
-indent.setup {
+indent.setup({
   static = {
-    char = '▏',
-    highlights = { 'BlinkIndent' },
+    char = "▏",
+    highlights = { "BlinkIndent" },
   },
   scope = {
-    char = '▏',
-    highlights = { 'BlinkIndentScope' },
+    char = "▏",
+    highlights = { "BlinkIndentScope" },
   },
-}
+})
 
-local cmp = require 'blink.cmp'
+local cmp = require("blink.cmp")
 
-cmp.setup {
-  keymap = { preset = 'default' },
+cmp.setup({
+  keymap = { preset = "default" },
 
   appearance = {
-    nerd_font_variant = 'mono',
+    nerd_font_variant = "mono",
   },
 
   completion = {
     accept = { auto_brackets = { enabled = false } },
     menu = {
       auto_show = function()
-        return not vim.tbl_contains({ 'markdown' }, vim.bo.filetype)
+        return not vim.tbl_contains({ "markdown" }, vim.bo.filetype)
       end,
       draw = {
         columns = {
-          { 'kind_icon' },
-          { 'label', 'label_description' },
-          { 'kind' },
+          { "kind_icon" },
+          { "label", "label_description" },
+          { "kind" },
         },
       },
     },
@@ -50,11 +50,11 @@ cmp.setup {
 
   -- Default sources, extendable via opts_extend
   sources = {
-    default = { 'lsp', 'path', 'snippets', 'dynamic', 'buffer' },
+    default = { "lsp", "path", "snippets", "dynamic", "buffer" },
     providers = {
       dynamic = {
-        name = 'Dynamic',
-        module = 'dynamic',
+        name = "Dynamic",
+        module = "dynamic",
         opts = {},
       },
     },
@@ -62,8 +62,8 @@ cmp.setup {
 
   cmdline = {
     keymap = {
-      preset = 'inherit',
-      ['<Tab>'] = { 'show', 'accept', 'fallback' },
+      preset = "inherit",
+      ["<Tab>"] = { "show", "accept", "fallback" },
     },
   },
 
@@ -72,11 +72,11 @@ cmp.setup {
   -- Always prioritize exact matches
   fuzzy = {
     sorts = {
-      'exact',
+      "exact",
       -- defaults
-      'score',
-      'sort_text',
+      "score",
+      "sort_text",
     },
-    implementation = 'prefer_rust_with_warning',
+    implementation = "prefer_rust_with_warning",
   },
-}
+})
