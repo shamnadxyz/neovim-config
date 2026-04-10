@@ -33,10 +33,10 @@ local light_yellow = '#d9d8aa'
 -- Plugin Styles
 local neogit = {
   diff_add = { bg = '#003415', fg = '#b8e1c1' },
-  diff_add_inline = { bg = '#b8e1c1', fg = '#003415' },
+  diff_add_inline = { bg = '#3a7448', fg = '#d1ebd6' },
   diff_add_highlight = { bg = '#295233', fg = '#addbb6' },
   diff_delete = { bg = '#410d14', fg = '#fac5c7' },
-  diff_delete_inline = { bg = '#fac5c7', fg = '#410d14' },
+  diff_delete_inline = { bg = '#7b211f', fg = '#fde7e5' },
   diff_delete_highlight = { bg = '#521615', fg = '#f9bdb6' },
 }
 
@@ -116,7 +116,7 @@ hl('Type', { fg = light_grey2 })
 hl('Delimiter', { fg = light_grey2 })
 hl('Comment', { fg = light_grey4 })
 hl('String', { fg = light_green })
-hl('Identifier', { fg = light_cyan })
+hl('Identifier', { fg = light_yellow })
 hl('Function', { fg = light_blue })
 hl('Statement', { fg = light_grey2, bold = true })
 hl('Special', { fg = light_blue })
