@@ -8,12 +8,7 @@ function source.new(opts)
   return self
 end
 
--- Enable the source in specific contexts only
-function source:enabled()
-  return vim.bo.filetype == 'markdown'
-end
-
-function source:get_completions(ctx, callback)
+function source:get_completions(_, callback)
   --- @type lsp.CompletionItem[]
   local items = require('dynamic.datetime').Items
 
