@@ -3,8 +3,16 @@ M = {}
 function M.build_snippet(...)
   local args = { ... }
   local snippet = ''
+
+  local first = true
+
   for _, value in ipairs(args) do
-    snippet = snippet .. '\n' .. value
+    if first then
+      snippet = snippet .. value
+      first = false
+    else
+      snippet = snippet .. '\n' .. value
+    end
   end
   return snippet
 end
@@ -24,6 +32,5 @@ function M.completion_item(label, action, documentation)
     },
   }
 end
-
 
 return M
