@@ -10,7 +10,7 @@ end
 
 function source:get_completions(_, callback)
   --- @type lsp.CompletionItem[]
-  local items = require('dynamic.datetime').Items
+  local items = require('dynamic.source').Items
 
   callback {
     items = items,
