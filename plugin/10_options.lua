@@ -1,8 +1,11 @@
-vim.o.mouse = ''
+vim.o.breakindent = true
+vim.o.breakindentopt = 'list:-1'
 vim.o.expandtab = true
 vim.o.ignorecase = true
 vim.o.inccommand = 'split'
 vim.o.incsearch = true
+vim.o.linebreak = true
+vim.o.mouse = ''
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.scrolloff = 10
