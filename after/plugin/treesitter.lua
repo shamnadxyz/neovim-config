@@ -2,9 +2,9 @@ local treesitter = require 'nvim-treesitter'
 
 treesitter.install {
   -- 'c',
-  -- 'cpp',
-  -- 'css',
-  -- 'html',
+  'cpp',
+  'css',
+  'html',
   -- 'hyprlang',
   -- 'javascript',
   'bash',
@@ -14,13 +14,12 @@ treesitter.install {
   'markdown',
   'python',
   'ssh_config',
-  -- 'rust',
+  'rust',
   -- 'sql',
-  -- 'svelte',
+  'svelte',
   -- 'toml',
-  -- 'typescript',
+  'typescript',
   -- 'yaml',
-  -- 'zsh',
 }
 
 vim.api.nvim_create_autocmd('FileType', {
