@@ -53,8 +53,9 @@ vim.o.tabstop = 2
 vim.o.termguicolors = true
 vim.o.undofile = true
 vim.o.wrap = false
-vim.o.foldmethod = 'marker'
-vim.o.foldenable = true
+vim.o.foldmethod = 'expr'
+vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.o.foldenable = false
 -- }}}
 
 -- AUTOCOMMANDS {{{
@@ -170,3 +171,5 @@ vim.cmd ':packadd nvim.undotree'
 require('vim._core.ui2').enable()
 
 vim.cmd.colorscheme 'minimal'
+
+-- vim:foldmethod=marker
