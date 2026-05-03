@@ -28,6 +28,7 @@ vim.keymap.set('n', '<TAB>', 'za', { desc = 'Toggle Fold' })
 
 -- OPTIONS {{{
 vim.o.breakindent = true
+vim.o.guicursor = ''
 vim.o.breakindentopt = 'list:-1'
 vim.o.foldtext = ''
 vim.o.expandtab = true
