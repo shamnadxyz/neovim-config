@@ -6,7 +6,7 @@ local function hl(group, opts)
 end
 
 hl('StatusLine', { fg = '#d8d4cd', bg = nil })
-hl('TelescopeTitle', { fg = '#00324f', bg = '#b3daf9' })
+hl('TelescopeTitle', { fg = '#b3daf9', bg = '#11262d' })
 hl('Normal', { fg = '#d8d4cd', bg = nil })
 -- }}}
 
