@@ -13,52 +13,61 @@ mason.setup()
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
   callback = function(event)
-    local fzf = require("fzf-lua")
     vim.keymap.set("n", "grn", vim.lsp.buf.rename, { buffer = event.buf, desc = "Rename" })
 
     vim.keymap.set(
       { "n", "x" },
       "gra",
-      fzf.lsp_code_actions,
+      vim.lsp.buf.code_action,
       { buffer = event.buf, desc = "Goto Code Action" }
     )
 
-    vim.keymap.set("n", "grr", fzf.lsp_references, { buffer = event.buf, desc = "Goto References" })
+    vim.keymap.set(
+      "n",
+      "grr",
+      vim.lsp.buf.references,
+      { buffer = event.buf, desc = "Goto References" }
+    )
 
     vim.keymap.set(
       "n",
       "gri",
-      fzf.lsp_implementations,
+      vim.lsp.buf.implementation,
       { buffer = event.buf, desc = "Goto Implementation" }
     )
 
-    vim.keymap.set("n", "gd", fzf.lsp_definitions, { buffer = event.buf, desc = "Goto Definition" })
+    vim.keymap.set(
+      "n",
+      "gd",
+      vim.lsp.buf.definition,
+      { buffer = event.buf, desc = "Goto Definition" }
+    )
 
     vim.keymap.set(
       "n",
       "gD",
-      fzf.lsp_declarations,
+      vim.lsp.buf.declaration,
       { buffer = event.buf, desc = "Goto Declaration" }
     )
 
     vim.keymap.set(
       "n",
       "gO",
-      fzf.lsp_document_symbols,
+      vim.lsp.buf.document_symbol,
       { buffer = event.buf, desc = "Open Document Symbols" }
     )
 
     vim.keymap.set(
       "n",
       "gW",
-      fzf.lsp_workspace_symbols,
+      vim.lsp.buf.workspace_symbol,
       { buffer = event.buf, desc = "Open Workspace Symbols" }
     )
 
     vim.keymap.set(
       "n",
       "grt",
-      fzf.lsp_typedefs,
+      vim.lsp.buf.type_definition,
       { buffer = event.buf, desc = "Goto Type Definition" }
     )
 
