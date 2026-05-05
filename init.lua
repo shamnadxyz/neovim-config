@@ -163,7 +163,6 @@ vim.pack.add({
     src = "https://github.com/folke/which-key.nvim",
     version = "stable",
   },
-  { src = "https://github.com/ibhagwan/fzf-lua" },
   {
     src = "https://github.com/lewis6991/gitsigns.nvim",
     version = vim.version.range("2.x"),
@@ -198,6 +197,13 @@ vim.pack.add({
   {
     src = "https://github.com/folke/trouble.nvim",
     version = vim.version.range("3.7.x"),
+  },
+  {
+    src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim",
+  },
+  {
+    src = "https://github.com/nvim-telescope/telescope.nvim",
+    version = vim.version.range("x"),
   },
 })
 
