@@ -15,6 +15,7 @@ telescope.load_extension 'fzf'
 local fd_find_args = {
   'fd',
   '-tf',
+  '-L',
   '-H',
   '-E',
   '**/.git',
