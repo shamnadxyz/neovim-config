@@ -1,11 +1,24 @@
+-- Init {{{
 require("mini.ai").setup()
 require("mini.surround").setup()
 require("mini.operators").setup()
 require("mini.statusline").setup()
 require("mini.icons").setup()
+-- }}}
 
-vim.cmd.colorscheme("minimal")
+-- Mini.hues {{{
+vim.cmd.colorscheme("miniwinter")
 
+local function hl(group, opts)
+  vim.api.nvim_set_hl(0, group, opts)
+end
+
+hl("StatusLine", { fg = "#d8d4cd", bg = nil })
+hl("TelescopeTitle", { fg = "#b3daf9", bg = "#11262d" })
+hl("Normal", { fg = "#d8d4cd", bg = nil })
+-- }}}
+
+-- Mini.files {{{
 local minifiles = require("mini.files")
 
 minifiles.setup({
@@ -56,3 +69,6 @@ vim.keymap.set("n", "<leader>e", function()
     minifiles.open()
   end
 end, { desc = "Open Oil file explorer" })
+-- }}}
+
+-- vim:foldmethod=marker:foldenable:foldlevel=0
