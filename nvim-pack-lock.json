@@ -24,11 +24,6 @@
       "src": "https://github.com/MagicDuck/grug-far.nvim",
       "version": "1.6.0 - 1.7.0"
     },
-    "mini.nvim": {
-      "rev": "a995fe9cd4193fb492b5df69175a351a74b3d36b",
-      "src": "https://github.com/nvim-mini/mini.nvim",
-      "version": "'stable'"
-    },
     "neogit": {
       "rev": "f8bcc625fe1b9bd55f7853820fddac9b0996f697",
       "src": "https://github.com/NeogitOrg/neogit"
