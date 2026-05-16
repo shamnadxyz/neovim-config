@@ -183,4 +183,4 @@ vim.cmd ':packadd nvim.undotree'
 require('vim._core.ui2').enable()
 
 vim.cmd.colorscheme 'wallust'
--- vim:foldmethod=marker
+-- vim:foldmethod=marker:foldenable:foldlevel=0
