@@ -163,6 +163,10 @@ vim.pack.add {
     src = 'https://github.com/nvim-telescope/telescope.nvim',
     version = vim.version.range 'x',
   },
+  {
+    src = 'https://github.com/nvim-mini/mini.nvim',
+    version = vim.version.range 'stable',
+  },
 }
 vim.cmd ':packadd nvim.undotree'
 -- }}}
@@ -170,6 +174,6 @@ vim.cmd ':packadd nvim.undotree'
 -- Enable Experimental UI2
 require('vim._core.ui2').enable()
 
-vim.cmd.colorscheme("minimal")
+vim.cmd.colorscheme("wallust")
 require('custom-hl').setup { transparent = true }
 -- vim:foldmethod=marker
