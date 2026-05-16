@@ -43,3 +43,11 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
     vim.cmd("tabnext " .. current_tab)
   end,
 })
+
+vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+  desc = "Apply custom highlights after loading colorscheme",
+  group = vim.api.nvim_create_augroup("apply-hl", { clear = true }),
+  callback = function()
+    require("custom-hl").setup({ transparent = true })
+  end,
+})
