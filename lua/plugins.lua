@@ -1,0 +1,53 @@
+vim.pack.add {
+  {
+    src = 'https://github.com/saghen/blink.cmp',
+    version = vim.version.range '1.x',
+  },
+  {
+    src = 'https://github.com/stevearc/conform.nvim',
+    version = vim.version.range '9.x',
+  },
+  {
+    src = 'https://github.com/lewis6991/gitsigns.nvim',
+    version = vim.version.range '2.x',
+  },
+  {
+    src = 'https://github.com/MagicDuck/grug-far.nvim',
+    version = vim.version.range '1.6.x',
+  },
+  {
+    src = 'https://github.com/neovim/nvim-lspconfig',
+  },
+  {
+    src = 'https://github.com/nvim-lua/plenary.nvim',
+  },
+  {
+    src = 'https://github.com/sindrets/diffview.nvim',
+  },
+  {
+    src = 'https://github.com/NeogitOrg/neogit',
+  },
+  {
+    src = 'https://github.com/mfussenegger/nvim-lint',
+  },
+  {
+    src = 'https://github.com/nvim-treesitter/nvim-treesitter',
+    version = 'main',
+  },
+  {
+    src = 'https://github.com/nvim-telescope/telescope-fzf-native.nvim',
+  },
+  {
+    src = 'https://github.com/nvim-telescope/telescope-ui-select.nvim',
+  },
+  {
+    src = 'https://github.com/nvim-telescope/telescope.nvim',
+    version = vim.version.range 'x',
+  },
+  {
+    src = 'https://github.com/nvim-mini/mini.nvim',
+    version = vim.version.range 'stable',
+  },
+}
+
+vim.cmd ':packadd nvim.undotree'

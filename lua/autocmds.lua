@@ -1,0 +1,72 @@
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
+  callback = function()
+    vim.hl.on_yank()
+  end,
+})
+
+vim.api.nvim_create_autocmd({ 'FocusGained', 'TermClose', 'TermLeave' }, {
+  desc = 'Check for file changes when gaining focus or leaving terminal',
+  group = vim.api.nvim_create_augroup('checktime', { clear = true }),
+  callback = function()
+    if vim.o.buftype ~= 'nofile' then
+      vim.cmd 'checktime'
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = {
+    'help',
+    'qf',
+    'notify',
+    'lspinfo',
+    'checkhealth',
+    'man',
+    'gitsigns-blame',
+    'diff',
+  },
+  desc = 'Close temporary buffers with q',
+  group = vim.api.nvim_create_augroup('close-with-q', { clear = true }),
+  callback = function(event)
+    vim.keymap.set('n', 'q', '<CMD>:q<CR>', { buffer = event.buf, silent = true })
+  end,
+})
+
+vim.api.nvim_create_autocmd({ 'VimResized' }, {
+  desc = 'resize splits if window got resized',
+  group = vim.api.nvim_create_augroup('resize_splits', { clear = true }),
+  callback = function()
+    local current_tab = vim.fn.tabpagenr()
+    vim.cmd 'tabdo wincmd ='
+    vim.cmd('tabnext ' .. current_tab)
+  end,
+})
+
+vim.api.nvim_create_autocmd('PackChanged', {
+  group = vim.api.nvim_create_augroup('pack-treesitter-update', { clear = true }),
+  callback = function(ev)
+    local name, kind = ev.data.spec.name, ev.data.kind
+    if name == 'nvim-treesitter' and kind == 'update' then
+      if not ev.data.active then
+        vim.cmd.packadd 'nvim-treesitter'
+      end
+      vim.cmd 'TSUpdate'
+      return
+    end
+
+    if name == 'telescope-fzf-native.nvim' and vim.fn.executable 'make' == 1 then
+      vim.system({ 'make' }, { cwd = ev.data.path }):wait()
+      return
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
+  desc = 'Apply custom highlights after loading colorscheme',
+  group = vim.api.nvim_create_augroup('apply-hl', { clear = true }),
+  callback = function()
+    require('custom-hl').setup { transparent = true }
+  end,
+})
