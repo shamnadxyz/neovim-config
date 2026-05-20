@@ -193,5 +193,7 @@ vim.cmd ':packadd nvim.undotree'
 -- Enable Experimental UI2
 require('vim._core.ui2').enable()
 
-vim.cmd.colorscheme 'wallust'
+require('custom-hl').setup {
+  transparent = true,
+}
 -- vim:foldmethod=marker:foldenable:foldlevel=0
