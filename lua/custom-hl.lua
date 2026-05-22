@@ -42,6 +42,11 @@ function M.setup(opts)
   hl('NeogitDiffDeleteHighlight', neogit.diff_delete_highlight)
   hl('NeogitDiffDeleteInline', neogit.diff_delete_inline)
   hl('NeogitDiffAddInline', neogit.diff_add_inline)
+
+  hl('MiniPickNormal', { bg = nil })
+  hl('MiniPickBorder', { bg = nil })
+  hl('MiniPickPrompt', { bg = nil })
+  hl('MiniPickBorderText', { fg = status_line.fg, bg = status_line.bg })
 end
 
 return M
