@@ -35,16 +35,6 @@ vim.pack.add {
     version = 'main',
   },
   {
-    src = 'https://github.com/nvim-telescope/telescope-fzf-native.nvim',
-  },
-  {
-    src = 'https://github.com/nvim-telescope/telescope-ui-select.nvim',
-  },
-  {
-    src = 'https://github.com/nvim-telescope/telescope.nvim',
-    version = vim.version.range 'x',
-  },
-  {
     src = 'https://github.com/nvim-mini/mini.nvim',
     version = vim.version.range 'stable',
   },

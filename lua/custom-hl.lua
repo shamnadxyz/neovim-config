@@ -31,10 +31,10 @@ function M.setup(opts)
 
   if opts.transparent then
     hl('Normal', { fg = normal.fg, bg = nil })
+    hl('NormalFloat', { fg = normal.fg, bg = nil })
   end
 
   hl('StatusLine', { fg = status_line.fg, bg = nil })
-  hl('TelescopeTitle', { fg = '#a6dbff', bg = '#2c2e33' })
 
   hl('NeogitDiffAdd', neogit.diff_add)
   hl('NeogitDiffAddHighlight', neogit.diff_add_highlight)
@@ -43,9 +43,7 @@ function M.setup(opts)
   hl('NeogitDiffDeleteInline', neogit.diff_delete_inline)
   hl('NeogitDiffAddInline', neogit.diff_add_inline)
 
-  hl('MiniPickNormal', { bg = nil })
-  hl('MiniPickBorder', { bg = nil })
-  hl('MiniPickPrompt', { bg = nil })
+  hl('MiniPickPrompt', { fg = normal.fg })
   hl('MiniPickBorderText', { fg = status_line.fg, bg = status_line.bg })
 end
 
