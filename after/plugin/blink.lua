@@ -1,6 +1,6 @@
 local cmp = require 'blink.cmp'
 
-cmp.setup({
+cmp.setup {
   keymap = { preset = 'default' },
 
   appearance = {
@@ -9,6 +9,7 @@ cmp.setup({
   },
 
   completion = {
+    menu = { auto_show = false },
     accept = { auto_brackets = { enabled = false } },
   },
 
@@ -37,4 +38,4 @@ cmp.setup({
   signature = { enabled = true, window = { show_documentation = false } },
 
   fuzzy = { implementation = 'prefer_rust_with_warning' },
-})
+}
