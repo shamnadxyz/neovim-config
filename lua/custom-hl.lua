@@ -25,6 +25,7 @@ function M.setup(opts)
 
   if opts.transparent then
     hl("Normal", { bg = nil })
+    hl("NormalFloat", { bg = nil })
   end
 
   hl("TelescopeTitle", { fg = "#a6dbff", bg = "#2c2e33" })
