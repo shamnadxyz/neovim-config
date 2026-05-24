@@ -3,22 +3,13 @@ local fzf = require("fzf-lua")
 fzf.register_ui_select()
 
 fzf.setup({
-  fzf_opts = {
-    ["--layout"] = "default",
-  },
+  "ivy",
   winopts = {
-    width = 0.8,
-    height = 0.9,
-    row = 0.50,
-    col = 0.50,
-    border = "none",
     backdrop = 100,
+    fullscreen = true,
     preview = {
       hidden = false,
-      vertical = "up:45%",
-      horizontal = "right:50%",
-      border = "rounded",
-      winopts = { number = false },
+      vertical = "up:60%",
     },
   },
   keymap = {
