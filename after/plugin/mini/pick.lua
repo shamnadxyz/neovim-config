@@ -52,6 +52,7 @@ pick.setup {
   },
   source = { show = pick.default_show },
   window = {
+    prompt_caret = '█',
     config = function()
       local height = math.floor(0.7 * vim.o.lines)
       local width = math.floor(0.7 * vim.o.columns)
