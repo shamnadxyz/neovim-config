@@ -27,12 +27,9 @@ local defauts = {
 function M.setup(opts)
   opts = vim.tbl_deep_extend('force', defauts, opts or {})
   local status_line = get_hl 'StatusLine'
+  local cursor_line = get_hl 'CursorLine'
+  local non_text = get_hl 'NonText'
   local normal = get_hl 'Normal'
-
-  if opts.transparent then
-    hl('Normal', { fg = normal.fg, bg = nil })
-    hl('NormalFloat', { fg = normal.fg, bg = nil })
-  end
 
   hl('StatusLine', { fg = status_line.fg, bg = nil })
 
@@ -44,7 +41,14 @@ function M.setup(opts)
   hl('NeogitDiffAddInline', neogit.diff_add_inline)
 
   hl('MiniPickPrompt', { fg = normal.fg })
-  hl('MiniPickBorderText', { fg = status_line.fg, bg = status_line.bg })
+  hl('MiniPickPromptPrefix', { fg = non_text.fg })
+  hl('MiniPickBorder', { fg = cursor_line.bg })
+  hl('MiniPickBorderText', { fg = cursor_line.fg, bg = cursor_line.bg })
+
+  if opts.transparent then
+    hl('Normal', { fg = normal.fg, bg = nil })
+    hl('NormalFloat', { fg = normal.fg, bg = nil })
+  end
 end
 
 return M
