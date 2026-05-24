@@ -1,0 +1,5 @@
+require("mini.ai").setup()
+require("mini.surround").setup()
+require("mini.operators").setup()
+require("mini.statusline").setup()
+require("mini.icons").setup()
