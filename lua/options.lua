@@ -29,3 +29,4 @@ vim.o.wrap = false
 vim.o.foldmethod = 'expr'
 vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.o.foldenable = false
+vim.o.winborder = 'rounded'

@@ -9,7 +9,7 @@ cmp.setup {
   },
 
   completion = {
-    menu = { auto_show = false },
+    menu = { auto_show = false, border = '' },
     accept = { auto_brackets = { enabled = false } },
   },
 
