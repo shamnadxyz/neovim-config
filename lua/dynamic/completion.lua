@@ -14,7 +14,9 @@ function M.build_snippet(...)
       snippet = snippet .. '\n' .. value
     end
   end
-  return snippet
+  return function()
+    return snippet
+  end
 end
 
 function M.completion_item(label, action, documentation)
