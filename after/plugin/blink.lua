@@ -9,7 +9,12 @@ cmp.setup {
   },
 
   completion = {
-    menu = { auto_show = false, border = '' },
+    menu = {
+      auto_show = function()
+        return vim.g.showcomp
+      end,
+      border = '',
+    },
     accept = { auto_brackets = { enabled = false } },
   },
 

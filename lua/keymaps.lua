@@ -21,3 +21,7 @@ vim.keymap.set('n', '<leader>Y', [["+Y]], { desc = 'Yank whole line to system cl
 vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]], { desc = 'Delete without affecting clipboard' })
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear search highlights' })
 vim.keymap.set('n', '<TAB>', 'za', { desc = 'Toggle Fold' })
+
+vim.keymap.set('n', '<leader>tc', function()
+  vim.g.showcomp = not vim.g.showcomp
+end, { desc = 'Toggle completion auto show' })
