@@ -29,8 +29,10 @@ function M.setup(opts)
   local non_text = get_hl 'NonText'
   local status_line_nc = get_hl 'StatusLineNC'
   local normal = get_hl 'Normal'
+  local folded = get_hl 'Folded'
 
   hl('StatusLine', { fg = status_line_nc.fg, bg = nil })
+  hl('Folded', { fg = folded.fg, bg = nil })
 
   hl('NeogitDiffAdd', neogit.diff_add)
   hl('NeogitDiffAddHighlight', neogit.diff_add_highlight)
