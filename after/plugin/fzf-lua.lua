@@ -9,7 +9,7 @@ fzf.setup({
     fullscreen = true,
     preview = {
       hidden = false,
-      vertical = "up:60%",
+      vertical = "up:70%",
     },
   },
   keymap = {
