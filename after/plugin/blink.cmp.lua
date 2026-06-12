@@ -10,6 +10,7 @@ cmp.setup({
   completion = {
     accept = { auto_brackets = { enabled = false } },
     menu = {
+      border = 'none',
       auto_show = function()
         return not vim.tbl_contains({ "markdown" }, vim.bo.filetype)
       end,
