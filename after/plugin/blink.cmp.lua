@@ -1,16 +1,3 @@
-local indent = require("blink.indent")
-
-indent.setup({
-  static = {
-    char = "▏",
-    highlights = { "BlinkIndent" },
-  },
-  scope = {
-    char = "▏",
-    highlights = { "BlinkIndentScope" },
-  },
-})
-
 local cmp = require("blink.cmp")
 
 cmp.setup({

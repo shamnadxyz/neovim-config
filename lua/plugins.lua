@@ -12,10 +12,6 @@ vim.api.nvim_create_autocmd("PackChanged", {
 
 vim.pack.add({
   {
-    src = "https://github.com/saghen/blink.indent",
-    version = vim.version.range("2.x"),
-  },
-  {
     src = "https://github.com/saghen/blink.cmp",
     version = vim.version.range("1.x"),
   },
@@ -24,15 +20,7 @@ vim.pack.add({
     version = vim.version.range("9.x"),
   },
   {
-    src = "https://github.com/folke/todo-comments.nvim",
-    version = "stable",
-  },
-  {
     src = "https://github.com/nvim-lua/plenary.nvim",
-  },
-  {
-    src = "https://github.com/folke/which-key.nvim",
-    version = "stable",
   },
   { src = "https://github.com/ibhagwan/fzf-lua" },
   {
