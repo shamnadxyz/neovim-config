@@ -1,14 +1,4 @@
-local mason = require("mason")
-local fidget = require("fidget")
-
-fidget.setup({
-  notification = {
-    window = {
-      winblend = 0,
-    },
-  },
-})
-mason.setup()
+require("mason").setup()
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
