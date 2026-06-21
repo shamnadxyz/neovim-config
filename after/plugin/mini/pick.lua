@@ -71,8 +71,22 @@ pick.setup {
 local project_files = function()
   pick.builtin.files { tool = 'git' }
 end
+
 local search_files = function()
-  pick.builtin.files { tool = 'fd' }
+  pick.builtin.cli {
+    command = {
+      'fd',
+      '--type',
+      'file',
+      '--hidden',
+      '--exclude',
+      '.git',
+      '--exclude',
+      'node_modules',
+      '--exclude',
+      'site-packages',
+    },
+  }
 end
 
 vim.keymap.set('n', '<leader>sf', search_files, { desc = 'Search files' })
