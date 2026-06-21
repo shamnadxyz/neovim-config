@@ -6,6 +6,7 @@ conform.setup {
     c = { 'clang_format' },
     cpp = { 'clang_format' },
     javascript = { 'biome', 'biome-organize-imports' },
+    json = { 'biome' },
     javascriptreact = { 'biome', 'biome-organize-imports' },
     lua = { 'stylua' },
     markdown = { 'markdownlint' },
