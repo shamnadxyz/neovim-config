@@ -31,6 +31,7 @@ function M.setup(opts)
   local normal = get_hl 'Normal'
   local folded = get_hl 'Folded'
 
+  hl('NormalFloat', { fg = normal.fg, bg = nil })
   hl('StatusLine', { fg = status_line_nc.fg, bg = nil })
   hl('Folded', { fg = folded.fg, bg = nil })
 
@@ -48,7 +49,6 @@ function M.setup(opts)
 
   if opts.transparent then
     hl('Normal', { fg = normal.fg, bg = nil })
-    hl('NormalFloat', { fg = normal.fg, bg = nil })
   end
 end
 
