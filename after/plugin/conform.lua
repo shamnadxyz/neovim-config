@@ -10,6 +10,7 @@ conform.setup {
     javascriptreact = { 'biome', 'biome-organize-imports' },
     lua = { 'stylua' },
     markdown = { 'markdownlint' },
+    nix = { 'nixfmt' },
     python = { 'ruff_format', 'ruff_organize_imports' },
     rust = { 'rustfmt', lsp_format = 'fallback' },
     sh = { 'shfmt' },
