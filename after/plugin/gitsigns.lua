@@ -12,8 +12,12 @@ gitsigns.setup {
 
     vim.keymap.set('n', '<leader>hd', gitsigns.diffthis, { buffer = bufnr, desc = 'Diff current buffer' })
 
-    vim.keymap.set('n', '<leader>tb', gitsigns.toggle_current_line_blame,
-      { buffer = bufnr, desc = 'Toggle current line blame' })
+    vim.keymap.set(
+      'n',
+      '<leader>tb',
+      gitsigns.toggle_current_line_blame,
+      { buffer = bufnr, desc = 'Toggle current line blame' }
+    )
 
     -- Text object
     vim.keymap.set({ 'o', 'x' }, 'ih', gitsigns.select_hunk, { buffer = bufnr, desc = 'Select hunk' })
