@@ -1,6 +1,6 @@
 vim.o.breakindent = true
 vim.o.breakindentopt = 'list:-1'
-vim.o.cursorline = true
+vim.o.cursorline = false
 vim.o.fillchars = 'eob: '
 vim.o.foldtext = ''
 vim.o.expandtab = true
