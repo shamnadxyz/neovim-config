@@ -1,5 +1,7 @@
 local cmp = require 'blink.cmp'
 
+local show_completion = true
+
 cmp.setup {
   keymap = { preset = 'default' },
 
@@ -11,7 +13,7 @@ cmp.setup {
   completion = {
     menu = {
       auto_show = function()
-        return vim.g.showcomp
+        return show_completion
       end,
       border = '',
     },
@@ -44,3 +46,7 @@ cmp.setup {
 
   fuzzy = { implementation = 'prefer_rust_with_warning' },
 }
+
+vim.keymap.set('n', '<leader>tc', function()
+  show_completion = not show_completion
+end, { desc = 'Toggle completion auto show' })
