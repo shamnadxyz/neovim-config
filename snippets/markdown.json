@@ -1,0 +1,12 @@
+{
+  "Boilerplate": {
+    "prefix": "cb",
+    "body": [
+      "```$1",
+      "$2",
+      "```",
+      "$0"
+    ],
+    "description": "Code Block"
+  }
+}
