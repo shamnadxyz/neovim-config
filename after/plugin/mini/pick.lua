@@ -78,6 +78,7 @@ local search_files = function()
       'fd',
       '--type',
       'file',
+      '--follow',
       '--hidden',
       '--exclude',
       '.git',
