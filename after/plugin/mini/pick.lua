@@ -75,16 +75,16 @@ end
 local search_files = function()
   pick.builtin.cli {
     command = {
-      'rg',
-      '--files',
+      'fd',
+      '--type',
+      'file',
       '--hidden',
-      '--follow',
-      '--glob',
-      '!.git/',
-      '--glob',
-      '!node_modules/',
-      '--glob',
-      '!site-packages/',
+      '--exclude',
+      '.git',
+      '--exclude',
+      'node_modules',
+      '--exclude',
+      'site-packages',
     },
   }
 end
