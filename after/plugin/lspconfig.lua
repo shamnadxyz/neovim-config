@@ -1,5 +1,3 @@
-require("mason").setup()
-
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
   callback = function(event)
@@ -104,36 +102,6 @@ local servers = {
     },
   },
 }
-
--- Tools to be automatically installed
--- Uncomment the tool names below to ensure they are installed
-local ensure_installed = {
-  "bash-language-server",
-  "biome",
-  "clang-format",
-  "clangd",
-  "css-lsp",
-  "harper-ls",
-  "html-lsp",
-  "json-lsp",
-  "lua-language-server",
-  "markdown-oxide",
-  "markdownlint",
-  "pgformatter",
-  "postgres-language-server",
-  "pyright",
-  "ruff",
-  "rust-analyzer",
-  "shellcheck",
-  "shellharden",
-  "shfmt",
-  "stylua",
-  "svelte-language-server",
-  "tailwindcss-language-server",
-  "typescript-language-server",
-}
-
-require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 for name, config in pairs(servers) do
   config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
