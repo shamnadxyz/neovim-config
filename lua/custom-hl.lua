@@ -34,6 +34,7 @@ local function get_colorscheme_highlights()
 end
 
 local function apply_highlights()
+  highlights = get_colorscheme_highlights()
   hl('NormalFloat', { fg = highlights.normal.fg, bg = nil })
   hl('StatusLine', { fg = highlights.status_line_nc.fg, bg = nil })
   hl('Folded', { fg = highlights.folded.fg, bg = nil })
@@ -60,7 +61,6 @@ end
 function M.setup(opts)
   opts = vim.tbl_deep_extend('force', defauts, opts or {})
   transparent = opts.transparent
-  highlights = get_colorscheme_highlights()
   apply_highlights()
 end
 
