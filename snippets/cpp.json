@@ -11,5 +11,14 @@
       "}"
     ],
     "description": "boilerplate"
+  },
+  "Function": {
+    "prefix": "fun",
+    "body": [
+      "$1 $2($3) {",
+      "$0",
+      "}"
+    ],
+    "description": "function"
   }
 }
