@@ -9,7 +9,7 @@ conform.setup {
     json = { 'biome' },
     javascriptreact = { 'biome', 'biome-organize-imports' },
     lua = { 'stylua' },
-    markdown = { 'markdownlint' },
+    -- markdown = { 'markdownlint' },
     nix = { 'nixfmt' },
     python = { 'ruff_format', 'ruff_organize_imports' },
     rust = { 'rustfmt', lsp_format = 'fallback' },
