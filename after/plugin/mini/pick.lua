@@ -68,9 +68,7 @@ pick.setup {
   },
 }
 
-local project_files = function()
-  pick.builtin.files { tool = 'git' }
-end
+local project_files = function() pick.builtin.files { tool = 'git' } end
 
 local search_files = function()
   pick.builtin.cli {
