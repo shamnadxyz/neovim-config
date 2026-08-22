@@ -7,16 +7,16 @@ local function hl(group, opts)
 end
 
 -- Color Palette
-local dark_blue = '#a1cff0'
-local dark_cyan = '#94d6da'
-local dark_green = '#aed5ae'
+local dark_blue = '#004972'
+local dark_cyan = '#005156'
+local dark_green = '#1b511f'
 local dark_grey1 = '#141923'
 local dark_grey2 = '#20252f'
 local dark_grey3 = '#343944'
 local dark_grey4 = '#494e5a'
-local dark_magenta = '#dfbae1'
-local dark_red = '#f1b8b6'
-local dark_yellow = '#cecb99'
+local dark_magenta = '#4d3670'
+local dark_red = '#6f2a2d'
+local dark_yellow = '#725921'
 local light_blue = '#a1d6fd'
 local light_cyan = '#90dfe3'
 local light_grey1 = '#edeff6'
