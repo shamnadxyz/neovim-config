@@ -20,9 +20,6 @@ conform.setup {
   },
 
   default_format_opts = {
-    timeout_ms = 3000,
-    async = false,
-    quiet = false,
     lsp_format = 'fallback',
   },
 
@@ -35,8 +32,6 @@ conform.setup {
   },
 }
 
-local function format()
-  conform.format { async = true, lsp_format = 'fallback' }
-end
+conform.formatters.shfmt = { append_args = { '--case-indent' } }
 
-vim.keymap.set('n', '<leader>f', format, { desc = 'Format buffer' })
+vim.keymap.set('n', '<leader>f', conform.format, { desc = 'Format buffer' })
