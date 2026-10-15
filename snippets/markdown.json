@@ -1,12 +1,10 @@
 {
-  "Boilerplate": {
-    "prefix": "cb",
-    "body": [
-      "```$1",
-      "$2",
-      "```",
-      "$0"
-    ],
-    "description": "Code Block"
-  }
+	"Code Block": {
+		"prefix": "cb",
+		"body": ["```$1", "$2", "```", "$0"]
+	},
+	"Link": {
+		"prefix": "ahref",
+		"body": ["[$1]($2)$0"]
+	}
 }
