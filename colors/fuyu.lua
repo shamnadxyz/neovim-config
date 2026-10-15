@@ -91,6 +91,9 @@ hl('Special', { fg = light_blue })
 hl('Error', { fg = light_grey1, bg = dark_red })
 hl('Todo', { fg = light_grey2, bold = true })
 
+-- LSP
+hl('LspInlayHint', { fg = light_grey4 })
+
 -- Diagnostic
 hl('DiagnosticError', { fg = light_red })
 hl('DiagnosticWarn', { fg = light_yellow })
