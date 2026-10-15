@@ -5,3 +5,5 @@ require 'plugins'
 
 -- Enable Experimental UI2
 require('vim._core.ui2').enable()
+
+vim.cmd.colorscheme 'fuyu'
