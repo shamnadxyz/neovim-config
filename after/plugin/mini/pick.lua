@@ -73,17 +73,16 @@ local project_files = function() pick.builtin.files { tool = 'git' } end
 local search_files = function()
   pick.builtin.cli {
     command = {
-      'fd',
-      '--type',
-      'file',
-      '--follow',
+      'rg',
+      '--files',
       '--hidden',
-      '--exclude',
-      '.git',
-      '--exclude',
-      'node_modules',
-      '--exclude',
-      'site-packages',
+      '--follow',
+      '--glob',
+      '!.git/',
+      '--glob',
+      '!node_modules/',
+      '--glob',
+      '!site-packages/',
     },
   }
 end
