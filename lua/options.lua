@@ -32,3 +32,4 @@ vim.o.termguicolors = true
 vim.o.undofile = true
 vim.o.winborder = 'rounded'
 vim.o.wrap = false
+vim.o.laststatus = 3
