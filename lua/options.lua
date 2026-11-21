@@ -12,7 +12,6 @@ vim.o.relativenumber = true
 vim.o.scrolloff = 10
 vim.o.shiftwidth = 2
 vim.o.sidescrolloff = 10
-vim.o.signcolumn = 'yes'
 vim.o.smartcase = true
 vim.o.smartindent = true
 vim.o.softtabstop = 2

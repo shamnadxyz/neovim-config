@@ -1,8 +1,6 @@
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
   callback = function(event)
-    vim.lsp.document_color.enable(true, nil, { style = 'virtual' })
-
     vim.keymap.set('n', 'grn', vim.lsp.buf.rename, { buffer = event.buf, desc = 'Rename' })
     vim.keymap.set({ 'n', 'x' }, 'gra', vim.lsp.buf.code_action, { buffer = event.buf, desc = 'Code actions' })
     vim.keymap.set('n', 'grr', vim.lsp.buf.references, { buffer = event.buf, desc = 'References' })
@@ -65,6 +63,7 @@ local show_virt_text = false
 
 vim.diagnostic.config {
   severity_sort = true,
+  signs = false,
   float = { border = 'rounded', source = 'if_many' },
   underline = { severity = vim.diagnostic.severity.ERROR },
   update_in_insert = false,
