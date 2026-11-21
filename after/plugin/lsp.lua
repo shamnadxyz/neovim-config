@@ -12,6 +12,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gO', vim.lsp.buf.document_symbol, { buffer = event.buf, desc = 'Document symbols' })
     vim.keymap.set('n', 'gW', vim.lsp.buf.workspace_symbol, { buffer = event.buf, desc = 'Workspace symbols' })
     vim.keymap.set('n', 'grt', vim.lsp.buf.type_definition, { buffer = event.buf, desc = 'Type definitions' })
+    vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, { buffer = event.buf, desc = 'Format buffer' })
 
     local client = vim.lsp.get_client_by_id(event.data.client_id)
 
